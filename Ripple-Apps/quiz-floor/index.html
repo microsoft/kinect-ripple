@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
+    <title>Answer The Question</title>
+    <script src="Assets/main.js"></script>
+    <!--<link rel="stylesheet" href="Assets/style.css" />-->
+    <style>
+        body {
+            margin:0;
+            padding:0;
+            overflow:hidden;
+            cursor:none;
+        }
+        #surface {
+            margin:0;
+            padding:0;
+            display:block;
+            position:fixed;
+            top:0px;
+            left:0px;
+            height:100%;
+            width:100%;
+            z-index:1;
+        }
+        #answers{
+            margin:0;
+            padding:0;
+            display:block;
+            position:fixed;
+            top:0px;
+            left:0px;
+            height:100%;
+            width:100%;
+            z-index:4;
+        }
+        audio {
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="surface"></canvas>
+    <canvas id="answers"></canvas>
+    <audio loop autoplay="autoplay">
+        <source src="Assets/feedbackBackground.mp3" />
+    </audio>
+    <audio id="optionSelectedSound">
+        <source src="Assets/optionSelected.mp3" />
+    </audio>
+</body>
+</html>

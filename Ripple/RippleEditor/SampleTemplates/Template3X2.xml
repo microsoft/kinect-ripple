@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Ripple>
+  <Floor>
+    <SetupID>MySetup</SetupID>
+    <Start>
+      <Animation Name="LockScreenAnimation" Content="\Assets\Animations\WaterRipples\index.html" AnimationType="HTML" />
+      <Unlock Mode="HTML" UnlockType="HTMLInvoke" />
+      <!-- Based on the duration for the Intro Video -->
+      <IntroVideoWaitPeriod Value="8" />
+    </Start>
+    <Transition Music="\Assets\Audio\transition_music.wav" Animation="TileRotate" />
+    <LockingPeriod>2</LockingPeriod>
+    <SystemAutoLockPeriod>180</SystemAutoLockPeriod>
+    <UpperTile Id="UpperTile" Name="Video Tile" TileType="OnlyMedia" Color="#FF00188F" CorrespondingScreenContentType="" Content="\Assets\Videos\Ripple_Wave.mp4" Style="Width:'1'; Height:'0.2'" Coordinate="X:'0'; Y:'0'" Action="Nothing" ActionURI="" />
+    <Tiles>
+      <Tile Id="Tile0" Name="Start" TileType="Text" Content="" CorrespondingScreenContentType="Video" Color="#FF00188F" Style="Width:'1'; Height:'0.2'" Coordinate="X:'0'; Y:'0.8'" Action="Standard" ActionURI=""></Tile>
+      <Tile Id="Tile1" Name="Tile1" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF0072C6" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.6'" Action="Standard" ActionURI="">
+        <SubTile Id="Tile1SubTile1" Name="" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF00BCF2" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+        <SubTile Id="Tile1SubTile2" Name="" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF00BCF2" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+        <SubTile Id="Tile1SubTile3" Name="Tile1SubTile3" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF6DC2E9" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.4'" Action="Standard" ActionURI=""></SubTile>
+        <SubTile Id="Tile1SubTile4" Name="Tile1SubTile4" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF6DC2E9" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.4'" Action="Standard" ActionURI=""></SubTile>
+        <SubTile Id="Tile1SubTile5" Name="Tile1SubTile5" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF6DC2E9" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+        <SubTile Id="Tile1SubTile6" Name="Tile1SubTile6" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF6DC2E9" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+      </Tile>
+      <Tile Id="Tile2" Name="Tile2" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFFF8C00" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.6'" Action="Standard" ActionURI="">
+        <SubTile Id="Tile2SubTile1" Name="" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFFF8C00" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+        <SubTile Id="Tile2SubTile2" Name="" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFFF8C00" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+        <SubTile Id="Tile2SubTile3" Name="Tile2SubTile3" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFFFB900" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.4'" Action="Standard" ActionURI=""></SubTile>
+        <SubTile Id="Tile2SubTile4" Name="Tile2SubTile4" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFFFB900" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.4'" Action="Standard" ActionURI=""></SubTile>
+        <SubTile Id="Tile2SubTile5" Name="Tile2SubTile5" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFFCD116" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+        <SubTile Id="Tile2SubTile6" Name="Tile2SubTile6" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFFCD116" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+      </Tile>
+      <Tile Id="Tile3" Name="Tile3" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFBA141A" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.4'" Action="Standard" ActionURI="">
+        <SubTile Id="Tile3SubTile1" Name="" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFBA141A" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+        <SubTile Id="Tile3SubTile2" Name="" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFBA141A" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+        <SubTile Id="Tile3SubTile3" Name="Tile3SubTile3" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFE81123" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.4'" Action="Standard" ActionURI=""></SubTile>
+        <SubTile Id="Tile3SubTile4" Name="Tile3SubTile4" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFE81123" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.4'" Action="Standard" ActionURI=""></SubTile>
+        <SubTile Id="Tile3SubTile5" Name="Tile3SubTile5" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFFF5E69" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+        <SubTile Id="Tile3SubTile6" Name="Tile3SubTile6" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFFF5E69" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+      </Tile>
+      <Tile Id="Tile4" Name="Tile4" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF007233" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.4'" Action="Standard" ActionURI="">
+        <SubTile Id="Tile4SubTile1" Name="" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF007233" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+        <SubTile Id="Tile4SubTile2" Name="" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF007233" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+        <SubTile Id="Tile4SubTile3" Name="Tile4SubTile3" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF009E49" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.4'" Action="Standard" ActionURI=""></SubTile>
+        <SubTile Id="Tile4SubTile4" Name="Tile4SubTile4" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF009E49" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.4'" Action="Standard" ActionURI=""></SubTile>
+        <SubTile Id="Tile4SubTile5" Name="Tile4SubTile5" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF55D455" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+        <SubTile Id="Tile4SubTile6" Name="Tile4SubTile6" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF55D455" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+      </Tile>
+      <Tile Id="Tile5" Name="Tile5" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF442359" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.2'" Action="Standard" ActionURI="">
+        <SubTile Id="Tile5SubTile1" Name="" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF442359" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+        <SubTile Id="Tile5SubTile2" Name="" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF442359" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+        <SubTile Id="Tile5SubTile3" Name="Tile5SubTile3" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF68217A" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.4'" Action="Standard" ActionURI=""></SubTile>
+        <SubTile Id="Tile5SubTile4" Name="Tile5SubTile4" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF68217A" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.4'" Action="Standard" ActionURI=""></SubTile>
+        <SubTile Id="Tile5SubTile5" Name="Tile5SubTile5" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF9B4F96" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+        <SubTile Id="Tile5SubTile6" Name="Tile5SubTile6" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF9B4F96" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+      </Tile>
+      <Tile Id="Tile6" Name="Tile6" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFB4009E" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.2'" Action="Standard" ActionURI="">
+        <SubTile Id="Tile6SubTile1" Name="" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFB4009E" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+        <SubTile Id="Tile6SubTile2" Name="" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFB4009E" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+        <SubTile Id="Tile6SubTile3" Name="Tile6SubTile3" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFEC008C" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.4'" Action="Standard" ActionURI=""></SubTile>
+        <SubTile Id="Tile6SubTile4" Name="Tile6SubTile4" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFEC008C" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.4'" Action="Standard" ActionURI=""></SubTile>
+        <SubTile Id="Tile6SubTile5" Name="Tile6SubTile5" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFF472D0" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+        <SubTile Id="Tile6SubTile6" Name="Tile6SubTile6" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FFF472D0" Style="Width:'0.5'; Height:'0.2'" Coordinate="X:'0.5'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+      </Tile>
+    </Tiles>
+  </Floor>
+  <Screen>
+    <ScreenContent Type="Video" Id="LockScreen" Header="" Content="\Assets\Videos\RippleIntro.mp4" LoopVideo="True"/>
+    <ScreenContent Type="Video" Id="IntroVideo" Header="Project Ripple" Content="\Assets\Videos\Ripple_IntroUnlock.mp4" LoopVideo="False" />
+    <ScreenContent Type="Image" Id="GotoStart" Header="Go To Start" Content="\Assets\Images\GoToStart.png" />
+    <ScreenContent Type="Video" Id="Tile0" Header="Select any Option from the Floor" Content="\Assets\Videos\ripple_start.mp4" LoopVideo="True" />
+  </Screen>
+</Ripple>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=10" >
+		<title>HTML5 Football Demo</title>
+		<script src="Assets/main.js"></script>
+		<link rel="stylesheet" href="Assets/style.css" />
+	</head>
+    <!-- style="cursor:none" -->
+	<body style="cursor:none" onload="notifyWPF()">
+		<canvas id="mainCanvas" style="position: absolute; top:0; left:0;background-color:transparent;z-index:0;" width="320" height="240"></canvas>
+        <canvas id="netCanvas" style="position: absolute; top:0; left:0;background-color:transparent;z-index:1;" width="320" height="240"></canvas>
+		<audio id="kickSound" style="display:none">
+			<source src="Assets/kick.mp3" type="audio/mpeg"/>
+		</audio>
+		<audio id="backgroundMusic" style="display:none" loop autoplay>
+			<source src="Assets/backgroundMusic.mp3" type="audio/mpeg"/>
+		</audio>
+		<audio id="gameEndMusic" style="display:none">
+			<source src="Assets/gameComplete.mp3" type="audio/mpeg"/>
+		</audio>
+	</body>
+	</html>

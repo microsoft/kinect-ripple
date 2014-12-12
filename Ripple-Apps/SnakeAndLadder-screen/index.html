@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
+    <title>Rotate The Wheel</title>
+    <script src="Assets/main.js"></script>
+    <!--<link rel="stylesheet" href="Assets/style.css" />-->
+    <style>
+        body {
+            margin:0;
+            padding:0;
+            overflow:hidden;
+        }
+        #rotatingWheel {
+            margin:0;
+            padding:0;
+            display:block;
+            z-index:100;
+        }
+        #instuctions-panel {
+            position:fixed;
+            top:calc(30vh);
+            width:calc(50vw);  
+            height:calc(50vh);
+            color:#fff;
+            font-family:'Segoe UI Light';
+            font-size:2.0em;
+            z-index:150;
+            display:table;
+        }
+        #instruction-content {
+            display:table-cell;
+            vertical-align:middle;
+            font-size:1.25em;
+            text-align:center;
+        }
+        #changing-instruction {
+            padding:1.0em 0.0em;
+            font-size: 1.25em;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="instuctions-panel">
+        <div id="instruction-content">
+            You are playing against Computer.
+            <div id="changing-instruction">
+			
+                Step on Blinking Number
+                <br/>
+                <br/>
+                <strong>TRY YOUR LUCK!</strong>
+            </div>
+        </div>
+    </div>
+    <canvas id="rotatingWheel"></canvas>
+    <div style="position:fixed;bottom:calc(0vh);width:calc(100vw);height:calc(5vh);background:rgb(112,48,160);font-family:'Segoe UI Light';color:#fff;font-size:1.5em;">
+        <div style="text-align:center;">
+            Swipe your left hand to exit the game.
+        </div>
+    </div>
+</body>
+</html>

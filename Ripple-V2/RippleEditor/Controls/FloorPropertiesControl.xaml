@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="RippleEditor.Controls.FloorPropertiesControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="540" d:DesignWidth="400">
+    <Grid ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#F24F21" Grid.Column="0" Grid.ColumnSpan="2">
+            <Label VerticalAlignment="Center" Margin="15,0,0,0" HorizontalAlignment="Left" FontFamily="Segoe UI" Foreground="White" Style="{StaticResource LabelStyle}">Floor Tile Properties</Label>
+        </Grid>
+        <ScrollViewer Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="70*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="1" Grid.Column="0" VerticalAlignment="Top">
+                    <TextBlock Text="Text *" Margin="20,20,20,0" Style="{StaticResource RelLabelStyle}"/>
+                    <TextBlock Text="Color *" Margin="20,70,20,0" Style="{StaticResource RelLabelStyle}"/>
+                    <TextBlock Text="Type *" Margin="20,120,20,0" Style="{StaticResource RelLabelStyle}"/>
+                    <TextBlock Text="Content" Margin="20,170,20,0" Style="{StaticResource RelLabelStyle}"/>
+                    <TextBlock Text="Action *" Margin="20,220,20,0" Style="{StaticResource RelLabelStyle}"/>
+                    <TextBlock Text="Action URI" Margin="20,270,20,0" Style="{StaticResource RelLabelStyle}"/>
+
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
+                    <TextBox Name="TBTextValue" Margin="20,20,20,0" Text="" Style="{StaticResource RelTextBoxStyle}" LostFocus="TBTextValue_LostFocus" TextWrapping="NoWrap" ToolTip="" />
+                    <xctk:ColorPicker Name="clrPicker" Margin="20,70,20,0" Height="27" VerticalAlignment="Top" />
+                    <ComboBox Name="CBTypeValue" Margin="20,120,20,0" Text="" Style="{StaticResource RelComboBoxStyle}" SelectionChanged="CBTypeValue_SelectionChanged"/>
+                    <TextBox Name="TBContentValue" Margin="20,170,40,0" Text="" Style="{StaticResource RelTextBoxStyle}" IsReadOnlyCaretVisible="True" IsReadOnly="True" TextWrapping="NoWrap" />
+                    <Button Name="ContentBrowseButton" Margin="0,170,20,0" Style="{StaticResource RelButtonStyle}" Click="ContentBrowseButton_Click" />
+                    <ComboBox Name="CBActionValue" Margin="20,220,20,0" Text="" Style="{StaticResource RelComboBoxStyle}" SelectionChanged="CBActionValue_SelectionChanged" />
+                    <TextBox Name="TBActionURIValue" Margin="20,270,40,0" Text="" Style="{StaticResource RelTextBoxStyle}" TextWrapping="NoWrap"  ToolTip=""/>
+                    <Button Name="ActionURIBrowseButton" Margin="0,270,20,0" Style="{StaticResource RelButtonStyle}" Click="ActionURIBrowseButton_Click" />
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

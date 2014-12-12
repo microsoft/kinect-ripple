@@ -1,0 +1,1 @@
+function executeCommandFromFloor(a) { var b = a.split(","); switch (console.log(b[0]), b[0]) { case "tileOpened": document.getElementById("tilesInnerText").innerHTML = "Number of Tiles Opened: " + b[1]; break; case "currentTile": document.getElementById("currentTileInnerText").innerHTML = "CurrentTile: " + b[1] } } window.onload = function () { setTimeout(function () { }, 1e3) };

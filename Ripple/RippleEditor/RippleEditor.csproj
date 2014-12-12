@@ -1,0 +1,640 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F12E4660-7532-4F5A-AB70-6AAAED68BF50}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RippleEditor</RootNamespace>
+    <AssemblyName>RippleEditor</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\BinaryOutput\RippleEditor\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>onlyR.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="RippleCommonUtilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common\RippleCommonUtilities.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RippleDictionary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common\RippleDictionary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Xceed.Wpf.Toolkit, Version=2.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\ApplicationPropertiesControl.xaml.cs">
+      <DependentUpon>ApplicationPropertiesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FloorPropertiesControl.xaml.cs">
+      <DependentUpon>FloorPropertiesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OverlayImageControl.xaml.cs">
+      <DependentUpon>OverlayImageControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ScreenPropertiesControl.xaml.cs">
+      <DependentUpon>ScreenPropertiesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Constants.cs" />
+    <Compile Include="Utilities\FloorUIState.cs" />
+    <Compile Include="Utilities\Globals.cs" />
+    <Compile Include="Utilities\HelperMethods.cs" />
+    <Compile Include="Utilities\MainOptionTile.xaml.cs">
+      <DependentUpon>MainOptionTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\NewTemplateSelectorBox.xaml.cs">
+      <DependentUpon>NewTemplateSelectorBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\TemplateOptions.cs" />
+    <Compile Include="Utilities\TileControl.xaml.cs">
+      <DependentUpon>TileControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\UpperVideoControl.xaml.cs">
+      <DependentUpon>UpperVideoControl.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Default Assets\Animations\Royalty-free-mp3\out or game over.ogg" />
+    <Content Include="Default Assets\Docs\PrinterReceipt.pptx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\ApplicationPropertiesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FloorPropertiesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\OverlayImageControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ScreenPropertiesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Utilities\MainOptionTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Utilities\NewTemplateSelectorBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Utilities\TileControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Utilities\UpperVideoControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Editor Assets\refresh_view_RED.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="Default Assets\Animations\cards.html" />
+    <Content Include="Default Assets\Animations\Football-game\Assets\backgroundMusic.mp3" />
+    <Content Include="Default Assets\Animations\Football-game\Assets\backgroundMusic_old.mp3" />
+    <Resource Include="Default Assets\Animations\Football-game\Assets\ball.png" />
+    <Resource Include="Default Assets\Animations\Football-game\Assets\ball1.png" />
+    <Content Include="Default Assets\Animations\Football-game\Assets\Copy of main.js" />
+    <Resource Include="Default Assets\Animations\Football-game\Assets\field.jpg" />
+    <Resource Include="Default Assets\Animations\Football-game\Assets\field1.jpg" />
+    <Content Include="Default Assets\Animations\Football-game\Assets\gameComplete.mp3" />
+    <Content Include="Default Assets\Animations\Football-game\Assets\gameComplete_orig.mp3" />
+    <Content Include="Default Assets\Animations\Football-game\Assets\kick.mp3" />
+    <Content Include="Default Assets\Animations\Football-game\Assets\kick_orig.mp3" />
+    <Content Include="Default Assets\Animations\Football-game\Assets\main.js" />
+    <Resource Include="Default Assets\Animations\Football-game\Assets\net.png" />
+    <Content Include="Default Assets\Animations\Football-game\Assets\style.css" />
+    <Content Include="Default Assets\Animations\Football-game\index.html" />
+    <Content Include="Default Assets\Animations\Football\Assets\backgroundMusic.mp3" />
+    <Content Include="Default Assets\Animations\Football\Assets\backgroundMusic_orig.mp3" />
+    <Resource Include="Default Assets\Animations\Football\Assets\ball.png" />
+    <Resource Include="Default Assets\Animations\Football\Assets\ball_old.png" />
+    <Resource Include="Default Assets\Animations\Football\Assets\field.jpg" />
+    <Resource Include="Default Assets\Animations\Football\Assets\field1.jpg" />
+    <Content Include="Default Assets\Animations\Football\Assets\gameComplete.mp3" />
+    <Content Include="Default Assets\Animations\Football\Assets\gameComplete_orig.mp3" />
+    <Content Include="Default Assets\Animations\Football\Assets\kick.mp3" />
+    <Content Include="Default Assets\Animations\Football\Assets\kick_orig.mp3" />
+    <Content Include="Default Assets\Animations\Football\Assets\main.js" />
+    <Content Include="Default Assets\Animations\Football\Assets\main1.js" />
+    <Resource Include="Default Assets\Animations\Football\Assets\net.png" />
+    <Content Include="Default Assets\Animations\Football\Assets\style.css" />
+    <Content Include="Default Assets\Animations\Football\index.html" />
+    <Content Include="Default Assets\Animations\Gesture-POC-floor\Assets\main.js" />
+    <Content Include="Default Assets\Animations\Gesture-POC-floor\index.html" />
+    <Content Include="Default Assets\Animations\Gesture-POC\Assets\main.js" />
+    <Content Include="Default Assets\Animations\Gesture-POC\index.html" />
+    <Content Include="Default Assets\Animations\Memory-game-front\Assets\Copy of main.js" />
+    <Content Include="Default Assets\Animations\Memory-game-front\Assets\main.js" />
+    <Content Include="Default Assets\Animations\Memory-game-front\index.html" />
+    <Content Include="Default Assets\Animations\Memory-game\Assets\background.mp3" />
+    <Content Include="Default Assets\Animations\Memory-game\Assets\background_old.mp3" />
+    <Content Include="Default Assets\Animations\Memory-game\Assets\Copy of main.js" />
+    <Content Include="Default Assets\Animations\Memory-game\Assets\flip.mp3" />
+    <Content Include="Default Assets\Animations\Memory-game\Assets\flip_old.mp3" />
+    <Content Include="Default Assets\Animations\Memory-game\Assets\main.js" />
+    <Content Include="Default Assets\Animations\Memory-game\cards.html" />
+    <Content Include="Default Assets\Animations\Memory-game\index.html" />
+    <Content Include="Default Assets\Animations\new2.swf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\background soothing.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\background_slow.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\child_yipee.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\claps.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\claps2.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\crash or hit.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\crash or hit_trim.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\grandeur lock  unlock.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\leaf open.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\memory game bg.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\opener or intro.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\out or game over.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\referee whistle.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\stadium cheers _slow.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\stadium cheers.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\tile open.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\victory_file.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\water splash.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-free-mp3\wow_child.mp3" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\background piano.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\background piano2.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\background retro.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\background short thinking.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\background soothing.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\background.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\calm sea.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\child yipee.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\claps.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\claps2.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\crash down or you loose.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\crash or hit.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\dice roll.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\few ppl clap and cheers.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\fight bell or time over.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\for snake ladder.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\game background.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\game over.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\grandeur lock  unlock.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\gun or sci fi game bg.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\high tempo.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\hit or time up.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\information or news.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\leaf open.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\lock screen background.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\lock screen bg2.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\lounge music.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\media1.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\media2.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\memory game bg.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\news highlights.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\night forest for lock screen.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\opener or intro.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\out or game over.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\referee whistle.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\score added.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\soothing background.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\sports bg.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\stadium cheers.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\starry night.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\tile open.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\victory.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\water splash.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\wow_child.wma" />
+    <Content Include="Default Assets\Animations\Royalty-Free-Sounds-Wma\you loose.wma" />
+    <Content Include="Default Assets\Animations\SmileyGame\Assets\backgroundMusic.mp3" />
+    <Content Include="Default Assets\Animations\SmileyGame\Assets\backgroundMusic_orig.mp3" />
+    <Content Include="Default Assets\Animations\SmileyGame\Assets\Copy of main.js" />
+    <Content Include="Default Assets\Animations\SmileyGame\Assets\gameComplete.mp3" />
+    <Content Include="Default Assets\Animations\SmileyGame\Assets\gameComplete_old.mp3" />
+    <Content Include="Default Assets\Animations\SmileyGame\Assets\hitSound.mp3" />
+    <Content Include="Default Assets\Animations\SmileyGame\Assets\hitsound_old.mp3" />
+    <Content Include="Default Assets\Animations\SmileyGame\Assets\main.js" />
+    <Content Include="Default Assets\Animations\SmileyGame\Assets\style.css" />
+    <Content Include="Default Assets\Animations\SmileyGame\index.html" />
+    <Content Include="Default Assets\Animations\SnakeAndLadder-floor\Assets\background.mp3" />
+    <Content Include="Default Assets\Animations\SnakeAndLadder-floor\Assets\Copy of main.js" />
+    <Content Include="Default Assets\Animations\SnakeAndLadder-floor\Assets\flip.mp3" />
+    <Content Include="Default Assets\Animations\SnakeAndLadder-floor\Assets\main.js" />
+    <Content Include="Default Assets\Animations\SnakeAndLadder-floor\cards.html" />
+    <Content Include="Default Assets\Animations\SnakeAndLadder-floor\index.html" />
+    <Content Include="Default Assets\Animations\SnakeAndLadder-screen\Assets\Copy of main.js" />
+    <Content Include="Default Assets\Animations\SnakeAndLadder-screen\Assets\main.js" />
+    <Resource Include="Default Assets\Animations\SnakeAndLadder-screen\Assets\wheel.png" />
+    <Content Include="Default Assets\Animations\SnakeAndLadder-screen\index.html" />
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\background.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\background_orig.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\Copy of main.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\flower.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\flower.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\flower_old.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\images.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\leafUnlocked.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\leafUnlocked_orig.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\main.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\Photo.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\photo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\red_fish.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\ripple.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\ripple_orig.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\white_fish.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\Assets\yellow_fish.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations\WaterRipples\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football-game\Assets\Copy of main.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football\Assets\main1.js" />
+    <Content Include="Default Assets\Animations-Old\Memory-game-front\Assets\Copy of main.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Memory-game-front\Assets\main.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Memory-game-front\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Memory-game\Assets\background.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Memory-game\Assets\Copy of main.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Memory-game\Assets\flip.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Memory-game\Assets\main.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Memory-game\cards.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Memory-game\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\new2.swf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\SmileyGame\Assets\Copy of main.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\WaterRipples\Assets\Copy of main.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Images\AboutUs.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Images\default_start.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Images\FunCorner.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Images\Mentors.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Images\pptend.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Images\Team.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Videos\GoToStart.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Videos\ripple_start.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Videos\Ripple_Wave.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Editor Assets\edited_logoRipple.png" />
+    <Content Include="Editor Assets\Ripple_Wave.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="onlyR.ico" />
+    <Content Include="SampleTemplates\Template3X2.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SampleTemplates\TemplateMerge1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football-game\Assets\backgroundMusic.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football-game\Assets\ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football-game\Assets\field.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football-game\Assets\gameComplete.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football-game\Assets\kick.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football-game\Assets\main.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football-game\Assets\net.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football-game\Assets\style.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football-game\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football\Assets\backgroundMusic.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football\Assets\ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football\Assets\field.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football\Assets\gameComplete.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football\Assets\kick.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football\Assets\main.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football\Assets\net.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football\Assets\style.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\Football\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\SmileyGame\Assets\backgroundMusic.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\SmileyGame\Assets\gameComplete.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\SmileyGame\Assets\hitsound.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\SmileyGame\Assets\main.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\SmileyGame\Assets\style.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\SmileyGame\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\WaterRipples\Assets\1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\WaterRipples\Assets\2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\WaterRipples\Assets\3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\WaterRipples\Assets\4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\WaterRipples\Assets\5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\WaterRipples\Assets\6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\WaterRipples\Assets\background.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\WaterRipples\Assets\gameComplete.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\WaterRipples\Assets\images.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\WaterRipples\Assets\leafUnlocked.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\WaterRipples\Assets\main.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\WaterRipples\Assets\rain.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\WaterRipples\Assets\red_fish.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\WaterRipples\Assets\ripple.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Animations-Old\WaterRipples\Assets\white_fish.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Default Assets\Animations-Old\WaterRipples\Assets\yellow_fish.png" />
+    <Content Include="Default Assets\Animations-Old\WaterRipples\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Audio\transition_music.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Images\GoToStart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Videos\RippleIntro.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default Assets\Videos\Ripple_IntroUnlock.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="obj\DLL\Xceed.Wpf.Toolkit.dll" />
+    <Resource Include="Editor Assets\QREncode.jpg" />
+    <Content Include="SampleTemplates\Template2X2.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SampleTemplates\Template2X3.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SampleTemplates\Template3X3.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

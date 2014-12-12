@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=10" >
+		<title>Memory Game</title>
+		<script src="Assets/main.js"></script>
+		<!--<link rel="stylesheet" href="Assets/style.css" />-->
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+                background:#000;
+                overflow-x:hidden;
+                overflow-y:hidden;
+            }
+            #game-container {
+                display: -ms-grid;
+                -ms-grid-rows: 1fr 1fr 1fr 1fr;
+                -ms-grid-columns:1fr 1fr 1fr 1fr 1fr;
+                background:#000;
+                width: calc(100vw);
+                height: calc(100vh);
+            }
+            #overlayCanvas {
+               position:fixed;
+               left:0;
+               top:0;
+               width:100%;
+               height:100%;
+               z-index:400;
+            }
+
+            audio {
+                display:none;
+            }
+            
+        </style>
+	</head>
+
+    <!-- style="cursor:none" -->
+
+	<body>
+         <canvas id="overlayCanvas"></canvas>
+        <div id="game-container">
+        </div>
+        
+        <audio loop>
+            <source src="Assets/background.mp3" />
+        </audio>
+        <audio id="flip-sound">
+            <source src="Assets/flip.mp3" />
+        </audio>
+	</body>
+</html>

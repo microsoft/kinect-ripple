@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=10" >
+		<title>HTML5 Avoider Game</title>
+        <link rel="stylesheet" href="Assets/style.css" />
+        <script type="text/javascript" src="Assets/rippleScreen.js"></script>
+        <script type="text/javascript">
+
+            var enemies = [];
+            var canvasWidth;
+            var canvasHeight;
+            var gameCanvas;
+            window.onload = function () {
+                canvasWidth = window.innerWidth;
+                canvasHeight = window.innerHeight;
+                
+                document.getElementById("gameCanvas").width = canvasWidth;
+                document.getElementById("gameCanvas").height = canvasHeight;
+                document.getElementById("gameCanvas").style.width = canvasWidth;
+                document.getElementById("gameCanvas").style.height = canvasHeight;
+                gameCanvas = document.getElementById("gameCanvas");
+                document.addEventListener("EnemyReceived", function (evt) {
+                    var enemy = new Object();
+//                    rippleHelper.sendCommandToFrontScreen("EnemyReceived", [enemy.y, canvasHeight, canvasWidth, enemy.faceColor]);
+                    //console.log(evt.commandParameters);
+//                    console.log("WIDTH " + canvasWidth);
+                    var num = parseInt(evt.commandParameters[0]);
+                    var den = parseInt(evt.commandParameters[1]);
+                    //console.log(num / den);
+                    var x = (num/den) * (canvasWidth);
+           
+                    enemy.x = x;
+                    enemy.y = canvasHeight;
+                    enemy.faceColor = evt.commandParameters[2];
+                    enemy.speed = evt.commandParameters[3];
+                    enemies.push(enemy);
+                });
+                handleChange();
+                setInterval(function () { handleChange() }, 100);
+            }
+
+            function handleChange()
+            {
+                console.log("LOL");
+                var ctx = gameCanvas.getContext("2d");
+                ctx.fillStyle = "rgb(238,33,123)";
+                ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+                var currentEnemyNumber = 0;
+               
+                while (currentEnemyNumber < enemies.length) {
+                    
+                    if (enemies[currentEnemyNumber].y > 0) {
+                        drawEnemy(enemies[currentEnemyNumber], enemies[currentEnemyNumber].x, enemies[currentEnemyNumber].y);
+                        enemies[currentEnemyNumber].y -= enemies[currentEnemyNumber].speed;
+                    }
+                        currentEnemyNumber++
+                }
+
+            }
+
+            function drawEnemy(enemy, x, y) {
+                var radius = 60 * (window.innerHeight / 800);
+                var heightRatio = (window.innerHeight / 768);
+                var widthRatio = (window.innerWidth / 1366);
+                var gameCanvas = document.getElementById("gameCanvas");
+                var context = gameCanvas.getContext("2d");
+
+                context.strokeStyle = '#FFFF00';
+                context.fillStyle = enemy.faceColor;
+                context.lineWidth = 4;
+                context.save();
+                context.beginPath();
+                //100,75
+                context.arc(x, y, radius, 0 * Math.PI, 2 * Math.PI, true);
+                context.closePath();
+                //context.stroke();
+                context.fill();
+                
+
+
+                // The Smile
+                context.strokeStyle = '#fff';
+                context.lineWidth = 2;
+                context.beginPath();
+                context.arc(x, y-20, radius - 5, 0.25 * Math.PI, 0.75 * Math.PI, false);
+                context.stroke();
+
+
+                // The Left eye
+                context.strokeStyle = '#fff';
+                context.fillStyle = '#fff';
+                context.beginPath();
+                context.arc(x - 15, y - 20, (radius * 0.12), 0 * Math.PI, 2 * Math.PI, false);
+                context.closePath();
+                context.stroke();
+                context.fill();
+
+                // The Right Eye
+                context.strokeStyle = '#fff';
+                context.fillStyle = '#fff';
+                context.beginPath();
+                context.arc(x + 15, y - 20, (radius * 0.12), 0 * Math.PI, 2 * Math.PI, false);
+                context.closePath();
+                context.stroke();
+                context.fill();
+                context.restore();
+            }
+        </script>
+	</head>
+	<body style="cursor:none">
+		<canvas id="gameCanvas" style="display:block" width="400" height="300"></canvas>
+	</body>
+</html>

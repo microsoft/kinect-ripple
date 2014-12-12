@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Ripple>
+	<Floor>
+		<Start>
+			<Animation Name="LockScreenAnimation" Content="\Assets\Animations\Football\index.html" AnimationType="HTML" />
+			<Unlock Mode="Animation" UnlockType="RightSwipe" />
+			<!-- Based on the duration for the Intro Video -->
+			<IntroVideoWaitPeriod Value="26" />
+		</Start>
+		<Transition Music="\Assets\Audio\transition_music.wav" Animation="TileRotate" />
+    <LockingPeriod>2</LockingPeriod>
+    <UpperTile Id="UpperTile" Name="Video Tile" TileType="OnlyMedia" Color="#FF00188F" CorrespondingScreenContentType="" Content="\Assets\Videos\ProjectRipple.wmv" Style="Width:'1'; Height:'0.2'" Coordinate="X:'0'; Y:'0'" Action="Nothing" ActionURI=""  />
+		<Tiles>
+			<Tile Id="Tile0" Name="Start" TileType="Text" Content="" CorrespondingScreenContentType="Video" Color="#FF00188F" Style="Width:'1'; Height:'0.2'" Coordinate="X:'0'; Y:'0.8'" Action="Standard" ActionURI=""></Tile>
+			<Tile Id="Tile1" Name="Microsoft Store" TileType="Text" Content="" CorrespondingScreenContentType="Image" Color="#FFFF8C00" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.6'" Action="Standard" ActionURI="">
+        <SubTile Id="Tile1SubTile1" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FFFF8C00" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile1SubTile2" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FFFF8C00" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile1SubTile3" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FFFF8C00" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile1SubTile4" Name="Windows Phone" TileType="Text" Content="" CorrespondingScreenContentType="PPT" Color="#FFFFB900" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.4'" Action="Standard" ActionURI=""></SubTile>
+				<SubTile Id="Tile1SubTile5" Name="Surface" TileType="Text" Content="" CorrespondingScreenContentType="PPT" Color="#FFFFB900" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.4'" Action="Standard" ActionURI=""></SubTile>
+				<SubTile Id="Tile1SubTile6" Name="Windows 8" TileType="Text" Content="" CorrespondingScreenContentType="Video" Color="#FFFFB900" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.4'" Action="Standard" ActionURI=""></SubTile>
+				<SubTile Id="Tile1SubTile7" Name="Lumia 1020" TileType="Text" Content="" CorrespondingScreenContentType="Video" Color="#FFFCD116" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+				<SubTile Id="Tile1SubTile8" Name="Xbox One" TileType="Text" Content="" CorrespondingScreenContentType="Video" Color="#FFFCD116" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+				<SubTile Id="Tile1SubTile9" Name="Office" TileType="Text" Content="" CorrespondingScreenContentType="Video" Color="#FFFCD116" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+			</Tile>
+			<Tile Id="Tile2" Name="MSIT" TileType="Text" Content="" CorrespondingScreenContentType="Browser" Color="#FFBA141A" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.6'" Action="Standard" ActionURI="">
+				<SubTile Id="Tile2SubTile1" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FFBA141A" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile2SubTile2" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FFBA141A" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile2SubTile3" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FFBA141A" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile2SubTile4" Name="CFIT" TileType="TextThumbnail" Content="\Assets\Images\image_new.jpg" CorrespondingScreenContentType="Image" Color="#FFE81123" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.4'" Action="Standard" ActionURI=""></SubTile>
+				<SubTile Id="Tile2SubTile5" Name="SESIT" TileType="TextThumbnail" Content="\Assets\Images\ppt_new.jpg" CorrespondingScreenContentType="PPT" Color="#FFE81123" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.4'" Action="Standard" ActionURI=""></SubTile>
+				<SubTile Id="Tile2SubTile6" Name="UEIT" TileType="TextThumbnail" Content="\Assets\Images\image_new.jpg" CorrespondingScreenContentType="Image" Color="#FFE81123" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.4'" Action="Standard" ActionURI=""></SubTile>
+				<SubTile Id="Tile2SubTile7" Name="SMIT" TileType="TextThumbnail" Content="\Assets\Images\image_new.jpg" CorrespondingScreenContentType="Image" Color="#FFFF5E69" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+				<SubTile Id="Tile2SubTile8" Name="ECIT" TileType="TextThumbnail" Content="\Assets\Images\image_new.jpg" CorrespondingScreenContentType="Image" Color="#FFFF5E69" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+				<SubTile Id="Tile2SubTile9" Name="MPSIT" TileType="TextThumbnail" Content="\Assets\Images\video_new.jpg" CorrespondingScreenContentType="Video" Color="#FFFF5E69" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+			</Tile>
+			<Tile Id="Tile3" Name="About Me" TileType="LiveTile" Content="\Assets\Images\LyncBlankImage.png" CorrespondingScreenContentType="Browser" Color="#FF0072C6" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.6'" Action="QRCode" ActionURI="http://www.google.com">
+				<SubTile Id="Tile3SubTile1" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF0072C6" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile3SubTile2" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF0072C6" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile3SubTile3" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF0072C6" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile3SubTile4" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF00BCF2" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile3SubTile5" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF00BCF2" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile3SubTile6" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF00BCF2" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile3SubTile7" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF6DC2E9" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.2'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile3SubTile8" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF6DC2E9" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.2'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile3SubTile9" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF6DC2E9" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.2'" Action="Nothing" ActionURI=""></SubTile>
+			</Tile>
+			<Tile Id="Tile4" Name="Fun Corner" TileType="Text" Content="" CorrespondingScreenContentType="Image" Color="#FFB4009E" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.4'" Action="Standard" ActionURI="">
+				<SubTile Id="Tile4SubTile1" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FFB4009E" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile4SubTile2" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FFB4009E" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile4SubTile3" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FFB4009E" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile4SubTile4" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FFEC008C" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile4SubTile5" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FFEC008C" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile4SubTile6" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FFEC008C" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile4SubTile7" Name="Night Sky" TileType="Text" Content="" CorrespondingScreenContentType="Video" Color="#FFF472D0" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.2'" Action="Animation" ActionURI="\Assets\Animations\Mouse-Follow-Line-Salut1.swf"></SubTile>
+				<SubTile Id="Tile4SubTile8" Name="Flower Pond" TileType="Text" Content="" CorrespondingScreenContentType="Video" Color="#FFF472D0" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.2'" Action="Animation" ActionURI="\Assets\Animations\learn3_oneflower.swf"></SubTile>
+				<SubTile Id="Tile4SubTile9" Name="Water Pool" TileType="Text" Content="" CorrespondingScreenContentType="Video" Color="#FFF472D0" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.2'" Action="Animation" ActionURI="\Assets\Animations\construct4_no_mouse.swf"></SubTile>
+			</Tile>
+			<Tile Id="Tile5" Name="Feedback" TileType="Text" Content="" CorrespondingScreenContentType="Text" Color="#FF008272" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.4'" Action="QRCode" ActionURI="http://rippleprod.cloudapp.net/RippleFeedback.aspx">
+				<SubTile Id="Tile5SubTile1" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF008272" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile5SubTile2" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF008272" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile5SubTile3" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF008272" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile5SubTile4" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF00B294" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile5SubTile5" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF00B294" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile5SubTile6" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF00B294" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile5SubTile7" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF00D8CC" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.2'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile5SubTile8" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF00D8CC" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.2'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile5SubTile9" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF00D8CC" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.2'" Action="Nothing" ActionURI=""></SubTile>
+			</Tile>
+			<Tile Id="Tile6" Name="About Us" TileType="Text" Content="" CorrespondingScreenContentType="Image" Color="#FF442359" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.4'" Action="Standard" ActionURI="">
+				<SubTile Id="Tile6SubTile1" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF442359" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile6SubTile2" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF442359" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile6SubTile3" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF442359" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile6SubTile4" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF68217A" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile6SubTile5" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF68217A" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile6SubTile6" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF68217A" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile6SubTile7" Name="Tushar" TileType="Text" Content="" CorrespondingScreenContentType="Image" Color="#FF9B4F96" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+				<SubTile Id="Tile6SubTile8" Name="Rolly" TileType="Text" Content="" CorrespondingScreenContentType="Image" Color="#FF9B4F96" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+				<SubTile Id="Tile6SubTile9" Name="Aakanksha" TileType="Text" Content="" CorrespondingScreenContentType="Image" Color="#FF9B4F96" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.2'" Action="Standard" ActionURI=""></SubTile>
+			</Tile>
+			<Tile Id="Tile7" Name="Vision" TileType="Text" Content="" CorrespondingScreenContentType="PPT" Color="#FF002050" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.2'" Action="Standard" ActionURI="">
+				<SubTile Id="Tile7SubTile1" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF002050" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile7SubTile2" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF002050" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile7SubTile3" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF002050" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile7SubTile4" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF00188F" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile7SubTile5" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF00188F" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile7SubTile6" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF00188F" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile7SubTile7" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF4668C5" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.2'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile7SubTile8" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF4668C5" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.2'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile7SubTile9" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF4668C5" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.2'" Action="Nothing" ActionURI=""></SubTile>
+			</Tile>
+			<Tile Id="Tile8" Name="MSW" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF7FBA00" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.2'" Action="Standard" ActionURI="">
+				<SubTile Id="Tile8SubTile1" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF7FBA00" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile8SubTile2" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF7FBA00" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile8SubTile3" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF7FBA00" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile8SubTile4" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FFBAD80A" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile8SubTile5" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FFBAD80A" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile8SubTile6" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FFBAD80A" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile8SubTile7" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FFE2E584" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.2'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile8SubTile8" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FFE2E584" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.2'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile8SubTile9" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FFE2E584" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.2'" Action="Nothing" ActionURI=""></SubTile>
+			</Tile>
+			<Tile Id="Tile9" Name="Logout" TileType="Text" Content="" CorrespondingScreenContentType="" Color="#FF007233" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.2'" Action="Logout" ActionURI="">
+				<SubTile Id="Tile9SubTile1" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF007233" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile9SubTile2" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF007233" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile9SubTile3" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF007233" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.6'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile9SubTile4" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF009E49" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile9SubTile5" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF009E49" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile9SubTile6" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF009E49" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.4'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile9SubTile7" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF55D455" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0'; Y:'0.2'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile9SubTile8" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF55D455" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.333333'; Y:'0.2'" Action="Nothing" ActionURI=""></SubTile>
+				<SubTile Id="Tile9SubTile9" Name="" TileType="Blank" Content="" CorrespondingScreenContentType="" Color="#FF55D455" Style="Width:'0.333333'; Height:'0.2'" Coordinate="X:'0.666666'; Y:'0.2'" Action="Nothing" ActionURI=""></SubTile>
+			</Tile>
+	</Tiles>
+	</Floor>
+	<Screen>    
+    <!-- Upgrade the content to show in full screen mode, when Header = "" -->
+		<ScreenContent Type="Video" Id="LockScreen" Header="" Content="\Assets\Videos\ripple_title5.mp4" LoopVideo="True"/>
+		<ScreenContent Type="Video" Id="IntroVideo" Header="Project Ripple" Content="\Assets\Videos\intro5.wmv" LoopVideo="False" />
+		<ScreenContent Type="Image" Id="GotoStart" Header="Go To Start" Content="\Assets\Images\start_image.png" />
+		<ScreenContent Type="Video" Id="Tile0" Header="Select any Option from the Floor" Content="\Assets\Videos\women_1.wmv" LoopVideo="True" />
+		<ScreenContent Type="Image" Id="Tile1" Header="Microsoft Store" Content="\Assets\Images\store_exp.jpg" />
+		<ScreenContent Type="Browse" Id="Tile2" Header="MSIT" Content="http://itweb/v7/insideit/MSIT_India/Pages/default.aspx" />
+		<ScreenContent Type="Browse" Id="Tile3" Header="About me" Content="http://who" />
+		<ScreenContent Type="Image" Id="Tile4" Header="Fun Corner" Content="\Assets\Images\Fun_Corner.jpg" />
+		<ScreenContent Type="Text" Id="Tile5" Header="Feedback" Content="Please Enter your feedback using the QR Code below" />
+		<ScreenContent Type="Image" Id="Tile6" Header="About Us" Content="\Assets\Images\AboutTeam.jpg " />
+		<ScreenContent Type="PPT" Id="Tile7" Header="Vision" Content="\Assets\Docs\Vision_ppt.pptx" />
+		<ScreenContent Type="Text" Id="Tile8" Header="MSW" Content="Nothing available right now" />
+		<ScreenContent Type="PPT" Id="Tile1SubTile4" Header="Windows Phone" Content="\Assets\Docs\Windows_Phone_8_Enterprise.pptx" />
+		<ScreenContent Type="PPT" Id="Tile1SubTile5" Header="Surface" Content="\Assets\Docs\Surface Ripple.pptx" />
+		<ScreenContent Type="Video" Id="Tile1SubTile6" Header="Windows 8" Content="\Assets\Videos\Windows 8.mp4" LoopVideo="False" />
+		<ScreenContent Type="Video" Id="Tile1SubTile7" Header="Lumia 1020" Content="\Assets\Videos\Nokia 1020.mp4" LoopVideo="False" />
+		<ScreenContent Type="Video" Id="Tile1SubTile8" Header="Xbox One" Content="\Assets\Videos\XboxOne.mp4" LoopVideo="False" />
+		<ScreenContent Type="Video" Id="Tile1SubTile9" Header="Office" Content="\Assets\Videos\Office_Ad.mp4" LoopVideo="False" />
+		<ScreenContent Type="Image" Id="Tile2SubTile4" Header="CFIT" Content="\Assets\Images\CFIT.jpg" />
+		<ScreenContent Type="PPT" Id="Tile2SubTile5" Header="SESIT" Content="\Assets\Docs\sesit_ppt.pptx" />
+		<ScreenContent Type="Image" Id="Tile2SubTile6" Header="UEIT" Content="\Assets\Images\ueit.jpg" />
+		<ScreenContent Type="Image" Id="Tile2SubTile7" Header="SMIT" Content="\Assets\Images\smit.jpg" />
+		<ScreenContent Type="Image" Id="Tile2SubTile8" Header="ECIT" Content="\Assets\Images\ecit.jpg" />
+		<ScreenContent Type="Video" Id="Tile2SubTile9" Header="MPSIT" Content="\Assets\Videos\MPSIT DEV Score Card FY-13 End.mp4" LoopVideo="False" />
+		<ScreenContent Type="Video" Id="Tile4SubTile7" Header="Night Sky" Content="\Assets\Videos\see_magic3.wmv" LoopVideo="True" />
+		<ScreenContent Type="Video" Id="Tile4SubTile8" Header="Flower Pond" Content="\Assets\Videos\see_magic3.wmv" LoopVideo="True" />
+		<ScreenContent Type="Video" Id="Tile4SubTile9" Header="Water Pool" Content="\Assets\Videos\see_magic3.wmv" LoopVideo="True" />
+		<ScreenContent Type="Image" Id="Tile6SubTile7" Header="Tushar" Content="\Assets\Images\Tushar.jpg"  />
+		<ScreenContent Type="Image" Id="Tile6SubTile8" Header="Rolly" Content="\Assets\Images\Rolly.jpg" />
+		<ScreenContent Type="Image" Id="Tile6SubTile9" Header="Aakanksha" Content="\Assets\Images\aakanksha_new.jpg" />
+	</Screen>
+</Ripple>

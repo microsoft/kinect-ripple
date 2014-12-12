@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
+    <title>Ripple SDK Screen</title>
+    <script src="rippleScreen.min.js"></script>
+    <script src="follow-sequence.js"></script>
+    <style type="text/css">
+        body {
+            width: calc(100vw);
+            height: calc(100vh);
+            background-image: url('front-bg.png');
+            background-size: 100% 100%;
+            margin: 0px;
+            padding: 0px;
+            background-repeat: no-repeat;
+            cursor:none;
+            font-size:0.75em;
+        }
+
+        #contentDiv {
+            position: absolute;
+            left: calc(12.18vw);
+            top: calc(17.69vh);
+   
+            width: calc(73.64vw);
+            height: calc(57.52vh);
+            color: #fff;
+            overflow: hidden;
+            font-family: 'Segoe Script';
+        }
+
+            #contentDiv #contentHeading {
+                text-align: center;
+            }
+
+            #contentDiv #startInstruction {
+                text-align: center;
+                margin-top: 1.0em;
+                font-size: 2.0em;
+                color: #4cff00;
+            }
+
+            #contentDiv #instructionsContent {
+                font-size:2.0em;
+                display:block;
+            }
+
+            #contentDiv #content {
+                margin: 1.0em;
+                font-size: 2.0em;
+                display:none;
+            }
+
+                #contentDiv #content #hints {
+                    text-align: center;
+                }
+
+                    #contentDiv #content #hints .hint {
+                        border-bottom: 0.1em solid #fff;
+                        word-spacing: 0.1em;
+                        line-height: 1.5em;
+                        margin: 1.5em 0.5em;
+                        padding: 0em 0.1em;
+                    }
+
+                #contentDiv #content #instruction {
+                    margin: 1.0em;
+                }
+
+                    #contentDiv #content #instruction .time {
+                        color: #ff0;
+                        font-weight: bold;
+                        
+                    }
+    </style>
+    <script>
+        window.onload = function () {
+
+            //Various rippleHelper Methods             
+            //Set Debug Mode
+            //To Set debug mode after initializing 
+            rippleHelper.setDebugMode(false);
+
+            //Ripple Timer
+            //Measures time in seconds
+            //Has Methods 
+            //timer.startTimer() // to start the timer from initial value 1
+            //timer.stopTimer() // to stop the timer
+            //timer.getTime() // to get time in seconds
+            //    var timer = rippleHelper.timer();
+
+            //    //To Send A Message To Front Screen
+            //    //This will fire an event with name sent in paramter 'CommandName' and property commandParameters of event will 
+            //    //give commandParameters
+            //    rippleHelper.sendCommandToFloor("RippleSampleCommand", ["Parameter1", "Parameter2"]);
+
+            //    //Any Message Recieved From Floor
+            //    //Where 'CommandFromScreen' is command name of command recieved from Screen
+            //    document.addEventListener("CommandFromScreen", function (evt) {
+            //        //commandParameters is an array of parameters received from Screen
+            //        console.log(evt.commandParameters);
+            //    });
+            //    rippleHelper.enableKeyboardInput(true);
+            //    document.addEventListener("keyboardInput", function (e) {
+            //        var input = e.input;
+            //        updateIframe(input)
+            //    });
+            //}
+            //function updateIframe(input) {
+            //    document.getElementById("iframe").src = "http://who/is/" + input;
+            //}
+            initializeGame();
+        }
+
+        
+    </script>
+</head>
+<body>
+    <div id="contentDiv">
+        <h1 id="contentHeading" style="text-align: center">Welcome Instructions
+        </h1>
+        <div id="instructionsContent">
+            <ul style="list-style:circle">
+                <li>You will be shown a sequence on screen.</li>
+                <li>You have to memorize it and repeat it in given time by stepping on floor in the same order.</li>
+                <li>Make sure you are not stepping on any number before starting.</li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="instruction">Seconds remaining to repeat the sequence: <span class="time"> </span></div>
+            <div id="hints">
+                
+            </div>
+        <div id="chancesLeft" style="position:absolute;text-align:right;top:0em;color:#ff0;right:0em;font-size:0.5em;font-weight:bold;">
+          <div id="chances" style="font-size:3.0em"></div>
+          <div id="score" style="font-size:1.5em;">Score: <span id="points">0</span></div> 
+        </div>          
+        </div>
+          <h2 id="startInstruction">swipe your right hand to start</h2>
+        <audio style="display:none" loop autoplay>
+            <source src="bgSound.mp3" />
+        </audio>
+        <audio style="display:none" id="Audio1">
+            <source src="1.mp3" />
+        </audio>
+        <audio style="display:none" id="Audio2">
+            <source src="2.mp3" />
+        </audio>
+        <audio style="display:none" id="Audio3">
+            <source src="3.mp3" />
+        </audio>
+        <audio style="display:none" id="Audio4">
+            <source src="4.mp3" />
+        </audio>
+        <audio style="display:none" id="LevelChange">
+            <source src="LevelChange.mp3" />
+        </audio>
+        <audio style="display:none" id="GameOver">
+            <source src="gameOver.mp3" />
+        </audio>
+        <audio style="display:none" id="Correct">
+            <source src="yeah.mp3" />
+        </audio>
+        <audio style="display:none" id="Wrong">
+            <source src="laugh.mp3" />
+        </audio>
+
+    </div>
+    <div style="position:fixed;bottom:0;font-size:1.0em;background:#000;color:#fff;text-align:center;padding:0.3em;width:calc(100vw);overflow:hidden;font-family:'Segoe Script'">
+        Swipe your Left hand to exit the game
+    </div>
+</body>
+</html>

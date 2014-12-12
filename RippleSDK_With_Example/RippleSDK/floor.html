@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
+    <title>Ripple SDK Floor</title>
+    <script src="rippleFloor.js"></script>
+    <script>
+        window.onload = function() {
+
+
+            //Various rippleHelper Methods             
+            //Set Debug Mode
+            //To Set debug mode after initializing 
+            rippleHelper.setDebugMode(true);
+
+            //Method To Exit HTML (Will Close Both Floor And Screen And Go Back To start)
+            rippleHelper.goToStart();
+
+            //Text To Speech , for doing TTS
+            //Example Usage rippleHelper.textToSpeech("Text To Be Converted To Speech")
+            rippleHelper.textToSpeech("Welcome Message From Ripple");
+
+            //Ripple Timer
+            //Measures time in seconds
+            //Has Methods 
+            //timer.startTimer() // to start the timer from initial value 1
+            //timer.stopTimer() // to stop the timer
+            //timer.getTime() // to get time in seconds
+            var timer = rippleHelper.timer();
+
+            //To Send A Message To Front Screen
+            //This will fire an event with name sent in paramter 'CommandName' and property commandParameters of event will 
+            //give commandParameters
+            rippleHelper.sendCommandToFrontScreen("RippleSampleCommand", ["Parameter1", "Parameter2"]);
+
+            //To Unlock the System Using HTML Invoke , only for Lock Screen Scenarios
+            rippleHelper.unlockSystem();
+
+            //To Send A Special Command for screen in data parameter, which will be message in RippleXML File
+            //This is to use HTML UI on floor to perform special actions
+            //Only For Very specific usage requirment
+            rippleHelper.processRippleXMLCommand("open-a-certain-ppt-or-video-or-image");
+
+            //Gesture Detected 
+            //If Any Gesture is detected an event with gesture name is fired at document level
+            //To take a certain action on gesture Listen to gesture event and take corresponding action
+            //Right Swipe and Left Swipe are supported
+            //Example Usage:  Exit on Right Swipe
+            document.addEventListener("RightSwipe", function (evt) {
+                rippleHelper.goToStart();
+            });
+
+            //Any Message Recieved From Screen
+            //Where 'CommandFromScreen' is command name of command recieved from Screen
+            document.addEventListener("CommandFromScreen", function (evt) {
+                //commandParameters is an array of parameters received from Screen
+                console.log("Parameters Are: " + evt.commandParameters);
+            });
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

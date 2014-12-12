@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
+    <title>Memory Game</title>
+    <script src="Assets/images.js"></script>
+    <script src="Assets/main.js"></script>
+    <!--<link rel="stylesheet" href="Assets/style.css" />-->
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            background: #000;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            height: calc(100vh);
+            width: calc(100vw);
+            /*cursor:none;*/
+            /*background:url('./Assets/snakeladder-bg.png');*/
+            /*background-size:100% 100%;*/
+            color:#fff;
+            font-size:5.0em;
+            font-family: 'Segoe UI Light';
+            cursor:none;
+        }
+        #playerCanvas {
+            z-index:100;
+        }
+        #computerCanvas {
+            z-index:200;
+        }
+        #gameCanvas {
+            z-index:1;
+        }
+        #foregroundCanvas {
+            z-index:2;
+        }
+        audio {
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <canvas  id="gameCanvas" style="position: absolute; top:0; left:0;background-color:transparent;"></canvas>
+    <canvas  id="foregroundCanvas" style="position: absolute; top:0; left:0;background-color:transparent;"></canvas>    
+    <canvas id="playerCanvas" style="position: absolute; top:0; left:0;background-color:transparent;"></canvas>
+    <canvas  id="computerCanvas" style="position: absolute; top:0; left:0;background-color:transparent;"></canvas>
+    <audio id="backgroundSound" loop autoplay>
+        <source src="Assets/snakeAndLadderBackground.mp3" />
+    </audio>
+    <audio id="wheelMoveSound">
+        <source src="Assets/wheelMove.mp3" />
+    </audio>
+    <audio id="ladderObtainedSound">
+        <source src="Assets/ladderObtained.mp3" />
+    </audio>
+
+    <audio id="turnChangeSound">
+        <source src="Assets/turnChange.mp3" />
+    </audio>
+     <audio id="winSound">
+        <source src="Assets/win.mp3" />
+    </audio>
+     <audio id="snakeBittenSound">
+        <source src="Assets/snakeBitten.mp3" />
+    </audio>
+</body>
+</html>

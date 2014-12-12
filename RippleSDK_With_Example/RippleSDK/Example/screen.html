@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
+    <title>Ripple SDK Screen</title>
+    <script src="rippleScreen.js"></script>
+    <script>
+        window.onload = function() {
+
+            //Various rippleHelper Methods             
+            //Set Debug Mode
+            //To Set debug mode after initializing 
+            rippleHelper.setDebugMode(true);
+            //Emulator mode is to see in emulator
+			rippleHelper.setEmulatorMode(true);
+
+            //Any Message Recieved From Floor
+            //Where 'CommandFromScreen' is command name of command recieved from Screen
+            document.addEventListener("TakeGoodAction", function (evt) {
+                 document.querySelector("#sampleDiv").style.display = "block"
+                console.log("Action Taken");
+            });
+        }
+    </script>
+	<style>
+		body{
+			background:#f00;
+		}
+		#sampleDiv{
+			position:absolute;
+			top:120px;
+			left:250px;
+			width:200px;
+			height:200px;
+			background:#0f0;
+            display:none;
+		}
+	</style>
+</head>
+<body>
+	<div id="sampleDiv">
+		
+	</div>
+</body>
+</html>

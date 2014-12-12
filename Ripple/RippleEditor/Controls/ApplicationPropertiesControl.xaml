@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="RippleEditor.Controls.ApplicationPropertiesControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="540" d:DesignWidth="400">
+    <Grid>        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#F24F21">
+            <Label VerticalAlignment="Center" Margin="15,0,0,0" HorizontalAlignment="Left" FontFamily="Segoe UI" Foreground="White" Style="{StaticResource LabelStyle}">System Unlock Properties</Label>
+        </Grid>
+        <ScrollViewer Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40*"/>
+                    <ColumnDefinition Width="60*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Grid.ColumnSpan="1" Margin="0,0.2,0,0">
+                    <TextBlock Text="Lock Screen Animation Type" Margin="20,20,20,0" Style="{StaticResource RelLabelStyle}"/>
+                    <TextBlock Name="AnimationURILabel" Text="Lock Screen Animation URI" Margin="20,70,20,0" Style="{StaticResource RelLabelStyle}" />
+                    <TextBlock Text="Lock Screen Content" Margin="20,120,20,0" Style="{StaticResource RelLabelStyle}" />
+                    <TextBlock Name="UnlockModeLabel" Text="Unlock Mode" Margin="20,170,20,0" Style="{StaticResource RelLabelStyle}" />
+                    <TextBlock Name="UnlockTypeLabel" Text="Unlock Type" Margin="20,220,20,0" Style="{StaticResource RelLabelStyle}" />
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Grid.ColumnSpan="1" Margin="0,0.2,0,0">
+                    <ComboBox Name="CBAnimationTypeValue" Margin="20,20,20,0" Style="{StaticResource RelComboBoxStyle}" SelectionChanged="CBAnimationTypeValue_SelectionChanged" />
+                    <TextBox Name="TBAnimationContentValue" Margin="20,70,40,0" Text="" Style="{StaticResource RelTextBoxStyle}" TextWrapping="NoWrap" />
+                    <Button Name="AnimationContentBrowseButton" Margin="0,70,20,0" Style="{StaticResource RelButtonStyle}" Click="AnimationContentBrowseButton_Click" />
+                    <TextBox Name="TBLockScreenContentValue" Margin="20,120,20,0"  Text="" Style="{StaticResource RelTextBoxStyle}" IsReadOnlyCaretVisible="True" IsReadOnly="True" TextWrapping="NoWrap"  />
+                    <Button Name="LockScreenContentBrowseButton" Margin="0,120,20,0" Style="{StaticResource RelButtonStyle}" Click="LockScreenContentBrowseButton_Click" />
+                    <ComboBox Name="CBUnlockModeValue" Margin="20,170,20,0" Style="{StaticResource RelComboBoxStyle}" SelectionChanged="CBUnlockModeValue_SelectionChanged" />
+                    <ComboBox Name="CBUnlockTypeValue" Margin="20,220,20,0" Style="{StaticResource RelComboBoxStyle}" SelectionChanged="CBUnlockTypeValue_SelectionChanged" />
+                </Grid>
+            </Grid>
+        </ScrollViewer>        
+        </Grid>
+</UserControl>

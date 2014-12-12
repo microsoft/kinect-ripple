@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="MobileOptimized" content="width" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="viewport" content="width=1000,initial-scale=1.0" />
+        <title>Ripple Emulator</title>
+        <script>
+            if (window.addEventListener) {
+                // For standards-compliant web browsers
+                window.addEventListener("message", displayMessage, false);
+            }
+            else {
+                window.attachEvent("onmessage", displayMessage);
+            }
+
+            function displayMessage(evt) {
+                var msgString = evt.data;
+
+                // Format of msgString is <to>,<from>,<type>,<name+params>
+                var parameters = msgString.split(",");
+
+                var to = parameters.shift();
+                var from = parameters.shift();
+                var data = parameters.toString(); // Format of data is <type>,<name+params>
+
+                var target = document.getElementById(to).contentWindow;
+                target.postMessage(data, "*");
+            }
+
+            function performGesture(gestureName) {
+                var to = "floor";   // gestures are always handled by the floor
+                var type = "gesture";
+                var data = type + "," + gestureName; // Format of data is <type>,<name+params>
+
+                var target = document.getElementById(to).contentWindow;
+                target.postMessage(data, "*");
+            }
+        </script>
+        <style>
+            body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            header {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 80px;
+            }
+            header h1 {
+                margin: 0;
+                padding: 5px 0 0 0;
+                width: 100%;
+                height: 100%;
+                font-size: 36px;
+                font-family: 'Segoe UI';
+                text-align: center;
+            }
+
+            .titles {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 40px;
+            }
+            .titles h2 {
+                position: absolute;
+                width: 100px;
+                height: 40px;
+                margin: 0;
+                padding: 5px 0 0 10px;
+                font-size: 18px;
+                color: white;
+                background: #2672EC;
+                font-family: 'Segoe UI';
+                text-transform: uppercase;
+                float: right;
+            }
+            .titles h2:first-of-type {
+                /*float: left;*/
+                left: 4%;
+            }
+            .titles h2:nth-of-type(2) {
+                left: 4%;
+                top: 400px;
+            }
+
+            .iframes {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 1000px;
+            }
+            .iframes iframe {
+                position: absolute;
+                /*width: 49%;
+                height: 100%;*/
+                margin: 0;
+                padding: 0;
+                border: 1px solid #666;
+                width: 1600px;
+                height: 1200px;
+                -moz-transform: scale(0.2, 0.2); 
+                -webkit-transform: scale(0.2, 0.2); 
+                -o-transform: scale(0.2, 0.2);
+                -ms-transform: scale(0.2, 0.2);
+                transform: scale(0.2, 0.2); 
+                -moz-transform-origin: top left;
+                -webkit-transform-origin: top left;
+                -o-transform-origin: top left;
+                -ms-transform-origin: top left;
+                transform-origin: top left;
+            }
+            .iframes #floor {
+                left: 4%;
+                /*float: left;*/
+            }
+            .iframes #screen {
+                left: 4%;
+                top: 440px;
+                /*float: right;*/
+            }
+            
+            .buttons {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 70px;
+                padding: 0 0 0 4%;
+                background: rgba(0,0,0,0.3);
+            }
+            .buttons button {
+                width: 120px;
+                height: 50px;
+                border: none;
+                font-size: 16px;
+                font-family: 'Segoe UI';
+                background: #5133AB;
+                color: white;
+                margin: 10px 20px 0 0;
+                padding: 5px;
+            }
+            .buttons button:hover,
+            .buttons button:focus,
+            .buttons button:active {
+                border: 2px solid black;
+            }
+
+
+            /* -------------- MEDIA QUERIES ----------------- */
+
+            /* Up to Mobile Landscape Size */
+            @media only screen and (max-width: 479px) {
+
+            }
+
+            /* Upwards of Mobile Landscape Size  */
+            @media only screen and (min-width: 480px) {
+                header h1 {
+                    font-size: 40px;
+                }
+                
+                .titles h2 {
+                    width: 150px;
+                    font-size: 20px;
+                }
+                .titles h2:nth-of-type(2) {
+                    left: 4%;
+                    top: 440px;
+                }
+
+                .iframes {
+                    height: 1000px;
+                }
+                .iframes iframe {
+                    -moz-transform: scale(0.25, 0.25); 
+                    -webkit-transform: scale(0.25, 0.25); 
+                    -o-transform: scale(0.25, 0.25);
+                    -ms-transform: scale(0.25, 0.25);
+                    transform: scale(0.25, 0.25);
+                }
+                .iframes #screen {
+                    left: 4%;
+                    top: 480px;
+                }
+            }
+
+            /* Beyond All Mobile Sizes, Tablet Portrait etc. */
+            @media only screen and (min-width: 768px) {
+                .titles h2:nth-of-type(2) {
+                    top: 620px;
+                }
+
+                .iframes iframe {
+                    -moz-transform: scale(0.4, 0.4); 
+                    -webkit-transform: scale(0.4, 0.4); 
+                    -o-transform: scale(0.4, 0.4);
+                    -ms-transform: scale(0.4, 0.4);
+                    transform: scale(0.4, 0.4); 
+                }
+                .iframes #screen {
+                    top: 660px;
+                }
+            }
+
+            /* Beyond standard 960 */
+            @media only screen and (min-width: 960px) {
+                .titles h2:nth-of-type(2) {
+                    left: 50%;
+                    top: auto;
+                }
+
+                .iframes {
+                    height: 450px;
+                }
+                .iframes iframe {
+                    -moz-transform: scale(0.25, 0.25); 
+                    -webkit-transform: scale(0.25, 0.25); 
+                    -o-transform: scale(0.25, 0.25);
+                    -ms-transform: scale(0.25, 0.25);
+                    transform: scale(0.25, 0.25); 
+                }
+                .iframes #screen {
+                    left: 50%;
+                    top: auto;
+                }
+            }
+
+            /* Beyond 1220p */
+            @media only screen and (min-width: 1220px) {
+                .iframes iframe {
+                    -moz-transform: scale(0.3, 0.3); 
+                    -webkit-transform: scale(0.3, 0.3); 
+                    -o-transform: scale(0.3, 0.3);
+                    -ms-transform: scale(0.3, 0.3);
+                    transform: scale(0.3, 0.3); 
+                }
+            }
+
+            /* Beyond 1440p */
+            @media only screen and (min-width: 1440px) {
+                .iframes iframe {
+                    -moz-transform: scale(0.35, 0.35); 
+                    -webkit-transform: scale(0.35, 0.35); 
+                    -o-transform: scale(0.35, 0.35);
+                    -ms-transform: scale(0.35, 0.35);
+                    transform: scale(0.35, 0.35); 
+                }
+            }
+        </style>
+    </head>
+<body>
+    <header>
+        <h1>Ripple Emulator</h1>
+    </header>
+    <section class="titles">
+        <h2>Floor</h2>
+        <h2>Screen</h2>
+    </section>
+
+    <!-- This section contains the floor and screen html files
+        They are embedded into the emulator as iframes -->
+    <section class="iframes">
+        <iframe id="floor" src="floor.html"></iframe>
+        <iframe id="screen" src="screen.html"></iframe>
+    </section>
+
+    <!-- This section contains buttons that perform gestures on the emulator -->
+    <section class="buttons">
+        <button onclick="performGesture('LeftSwipe')" accesskey="l">Left Swipe</button>
+        <button onclick="performGesture('RightSwipe')" accesskey="r">Right Swipe</button>
+    </section>
+</body>
+</html>

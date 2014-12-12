@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
+    <title>Ripple SDK Floor</title>
+    <style>
+        body 
+        {
+            width:calc(100vw);
+            height:calc(100vh);
+            background-image:url('Images/bg.png');
+            background-size:100% 100%;
+            margin:0;
+            padding:0;
+            background-repeat:no-repeat;
+            /*cursor:none;*/ /* Use cursor:none property to hide the cursor when deploying on Ripple*/
+        }
+
+        .number {
+            position:absolute;
+            width:calc(27vw);
+            height:calc(44vh);
+        }
+        .one {
+            top:calc(5vh);
+            left:calc(50vw);
+        }
+        .two {
+            top:calc(50vh);
+            left:calc(50vw);
+        }
+        .three {
+            top:calc(50vh);
+            left:calc(20vw);
+        }
+        .four {
+            top:calc(5vh);
+            left:calc(20vw);
+        }
+    </style>
+
+    <!-- Include the rippleFloor.js file of the Ripple SDK in the floor html page -->
+    <script src="JS/rippleFloor.js"></script>
+
+    <script>
+        var timer;
+        var currentNumber;
+        var enabled;
+        window.onload = function () {
+
+            /* Various rippleHelper methods */            
+
+            // To set debug mode after initializing 
+            rippleHelper.setDebugMode(true);
+
+            // To set emulator mode after initializing 
+            rippleHelper.setEmulatorMode(true);
+
+
+            //// Method To Exit HTML (Will Close Both Floor And Screen And Go Back To start)
+            //rippleHelper.goToStart();
+
+            //// Text To Speech, for doing TTS
+            //// Example Usage rippleHelper.textToSpeech("Text To Be Converted To Speech")
+            //rippleHelper.textToSpeech("Welcome Message From Ripple");
+
+            //// Ripple Timer
+            //// Measures time in seconds
+            //// Has Methods 
+            ////timer.startTimer() // to start the timer from initial value 1
+            ////timer.stopTimer() // to stop the timer
+            ////timer.getTime() // to get time in seconds
+            //var timer = rippleHelper.timer();
+
+            //// To Send A Message To Front Screen
+            //// This will fire an event with name sent in paramter 'CommandName' and property commandParameters of event will 
+            //// give commandParameters
+            //rippleHelper.sendCommandToFrontScreen("RippleSampleCommand", ["Parameter1", "Parameter2"]);
+
+            //// To Unlock the System Using HTML Invoke , only for Lock Screen Scenarios
+            //rippleHelper.unlockSystem();
+
+            //// To Send A Special Command for screen in data parameter, which will be message in RippleXML File
+            //// This is to use HTML UI on floor to perform special actions
+            //// Only For Very specific usage requirment
+            //rippleHelper.processRippleXMLCommand("open-a-certain-ppt-or-video-or-image");
+
+            //// Gesture Detected 
+            //// If Any Gesture is detected an event with gesture name is fired at document level
+            //// To take a certain action on gesture Listen to gesture event and take corresponding action
+            //// Right Swipe and Left Swipe are currently supported
+            //// Example Usage:  Exit on Right Swipe
+            //document.addEventListener("RightSwipe", function (evt) {
+            //    rippleHelper.goToStart();
+            //});
+
+            //// Any Message Received From Screen
+            //// Where 'CommandFromScreen' is command name of command recieved from Screen
+            //document.addEventListener("CommandFromScreen", function (evt) {
+            //    // commandParameters is an array of parameters received from Screen
+            //    console.log("Parameters Are: " + evt.commandParameters);
+            //});
+            timer = rippleHelper.timer();
+            initializeGame();
+
+        }
+        
+        function initializeGame()
+        {
+            var images = document.querySelectorAll(".number"); // selects all elements with class "number"
+            for (var i = 0; i < images.length; ++i) {
+                var image = images[i];
+                image.addEventListener("mousemove", function (e) {
+
+                    // If you move(hover) the mouse over the number for more than 2 sec
+                    // In terms of Ripple, if you are standing on the number for more than 2 sec
+                    if (timer.getTime() > 2 && enabled) {
+                        
+                        currentNumber = e.srcElement.getAttribute("data-number");
+                        enabled = false;
+
+                        // Sends the "numberReceived" command to the Screen with params as [currentNumber]
+                        rippleHelper.sendCommandToFrontScreen("numberReceived", [currentNumber]);
+                    }
+                });
+
+                // Adding mouseover and mouseout event listners
+                // The timer starts and stops according to the mouse position
+                image.addEventListener("mouseover", function (e) {
+                    timer.startTimer();
+                    enabled = true;
+                });
+                image.addEventListener("mouseout", function (e) {
+                    timer.stopTimer();
+                    timer.value = 1;
+                });
+            }
+
+            document.addEventListener("RightSwipe", function (e) {
+                rippleHelper.sendCommandToFrontScreen("RightSwipe", []);
+            });
+
+            document.addEventListener("ExitGame", function (e) {
+                rippleHelper.goToStart();
+            });
+
+            // Using Left Swipe gesture to exit the game (proposed Ripple standard)
+            document.addEventListener("LeftSwipe", function (e) {
+                rippleHelper.goToStart();
+            });
+        }
+    </script>
+</head>
+  <body>
+    <img class="number one" data-number="1" src="Images/1.png"/>
+    <img class="number two" data-number="2" src="Images/2.png" />
+    <img class="number three" data-number="3" src="Images/3.png" />
+    <img class="number four" data-number="4" src="Images/4.png" />
+ </body>
+</html>

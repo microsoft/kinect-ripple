@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
+    <title>Ripple SDK Floor</title>
+    <script src="rippleFloor.js"></script>
+    <script>
+		var timer;
+        window.onload = function() {
+
+
+            //Various rippleHelper Methods             
+            //Set Debug Mode
+            //To Set debug mode after initializing 
+            rippleHelper.setDebugMode(true); // Sets the debug mode , press f12 on browser to see commands printed in console
+			rippleHelper.setEmulatorMode(true); // Sets the emulator mode , refer the files in emulator for use
+			timer = rippleHelper.timer(); // Timer function , a utility function helpful for Ripple
+		
+		}
+		
+        document.addEventListener("RightSwipe", function (evt) {
+            rippleHelper.goToStart(); // Exit the application
+        });
+
+		//This function is called on mouse move event , basically when you are standing on floor at any point this function is called everytime
+		function takeAction(){
+			console.log(timer.getTime());
+			if(timer.getTime() > 2){
+				 timer.stopTimer();
+				 rippleHelper.sendCommandToFrontScreen("TakeGoodAction", []);
+				 document.querySelector("#sampleDiv").style.display = "none"
+			}
+		}
+    </script>
+	
+	<style>
+		body{
+			background:#f00;
+		}
+		#sampleDiv{
+			position:absolute;
+			top:120px;
+			left:250px;
+			width:200px;
+			height:200px;
+			background:#0f0;
+		}
+	</style>
+</head>
+<body>
+	<div id="sampleDiv" onmouseover="timer.startTimer()" onmouseout="timer.stopTimer()" onmousemove="takeAction()">
+		
+	</div>
+</body>
+</html>

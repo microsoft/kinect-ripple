@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SQLService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpEndpoint2_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:NegotiateAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://co2ecweb04/SQLService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://co2ecweb04/SQLService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://co2ecweb04/SQLService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISQLService_PublishSessionGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:PublishSessionGroup" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_PublishSessionGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PublishSessionGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_PublishGroupWithEventsID_InputMessage">
+    <wsdl:part name="parameters" element="tns:PublishGroupWithEventsID" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_PublishGroupWithEventsID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PublishGroupWithEventsIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_NonProd_InputMessage">
+    <wsdl:part name="parameters" element="tns:NonProd" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_NonProd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NonProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_CreateEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateEvents" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_CreateEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_CreateEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateEvent" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_CreateEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_UpdateEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvents" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_UpdateEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_UpdateEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvent" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_UpdateEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_UpdateAttendanceData_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAttendanceData" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_UpdateAttendanceData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAttendanceDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_EventTrackerAttendanceReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:EventTrackerAttendanceReport" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_EventTrackerAttendanceReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EventTrackerAttendanceReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_GetUserData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserData" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_GetUserData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_CardScanIDRetrieval_InputMessage">
+    <wsdl:part name="parameters" element="tns:CardScanIDRetrieval" />
+  </wsdl:message>
+  <wsdl:message name="ISQLService_CardScanIDRetrieval_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CardScanIDRetrievalResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISQLService">
+    <wsdl:operation name="PublishSessionGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISQLService/PublishSessionGroup" message="tns:ISQLService_PublishSessionGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISQLService/PublishSessionGroupResponse" message="tns:ISQLService_PublishSessionGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PublishGroupWithEventsID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISQLService/PublishGroupWithEventsID" message="tns:ISQLService_PublishGroupWithEventsID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISQLService/PublishGroupWithEventsIDResponse" message="tns:ISQLService_PublishGroupWithEventsID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NonProd">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISQLService/NonProd" message="tns:ISQLService_NonProd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISQLService/NonProdResponse" message="tns:ISQLService_NonProd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISQLService/CreateEvents" message="tns:ISQLService_CreateEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISQLService/CreateEventsResponse" message="tns:ISQLService_CreateEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISQLService/CreateEvent" message="tns:ISQLService_CreateEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISQLService/CreateEventResponse" message="tns:ISQLService_CreateEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISQLService/UpdateEvents" message="tns:ISQLService_UpdateEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISQLService/UpdateEventsResponse" message="tns:ISQLService_UpdateEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISQLService/UpdateEvent" message="tns:ISQLService_UpdateEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISQLService/UpdateEventResponse" message="tns:ISQLService_UpdateEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAttendanceData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISQLService/UpdateAttendanceData" message="tns:ISQLService_UpdateAttendanceData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISQLService/UpdateAttendanceDataResponse" message="tns:ISQLService_UpdateAttendanceData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EventTrackerAttendanceReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISQLService/EventTrackerAttendanceReport" message="tns:ISQLService_EventTrackerAttendanceReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISQLService/EventTrackerAttendanceReportResponse" message="tns:ISQLService_EventTrackerAttendanceReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISQLService/GetUserData" message="tns:ISQLService_GetUserData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISQLService/GetUserDataResponse" message="tns:ISQLService_GetUserData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CardScanIDRetrieval">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISQLService/CardScanIDRetrieval" message="tns:ISQLService_CardScanIDRetrieval_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISQLService/CardScanIDRetrievalResponse" message="tns:ISQLService_CardScanIDRetrieval_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpEndpoint2" type="tns:ISQLService">
+    <wsp:PolicyReference URI="#BasicHttpEndpoint2_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PublishSessionGroup">
+      <soap:operation soapAction="http://tempuri.org/ISQLService/PublishSessionGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishGroupWithEventsID">
+      <soap:operation soapAction="http://tempuri.org/ISQLService/PublishGroupWithEventsID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NonProd">
+      <soap:operation soapAction="http://tempuri.org/ISQLService/NonProd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateEvents">
+      <soap:operation soapAction="http://tempuri.org/ISQLService/CreateEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateEvent">
+      <soap:operation soapAction="http://tempuri.org/ISQLService/CreateEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvents">
+      <soap:operation soapAction="http://tempuri.org/ISQLService/UpdateEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvent">
+      <soap:operation soapAction="http://tempuri.org/ISQLService/UpdateEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAttendanceData">
+      <soap:operation soapAction="http://tempuri.org/ISQLService/UpdateAttendanceData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EventTrackerAttendanceReport">
+      <soap:operation soapAction="http://tempuri.org/ISQLService/EventTrackerAttendanceReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserData">
+      <soap:operation soapAction="http://tempuri.org/ISQLService/GetUserData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CardScanIDRetrieval">
+      <soap:operation soapAction="http://tempuri.org/ISQLService/CardScanIDRetrieval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SQLService">
+    <wsdl:port name="BasicHttpEndpoint2" binding="tns:BasicHttpEndpoint2">
+      <soap:address location="http://co2ecweb04/SQLService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

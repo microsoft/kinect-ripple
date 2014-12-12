@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="PublishSessionGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inputEventsDataFile" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PublishSessionGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PublishSessionGroupResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PublishGroupWithEventsID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dbName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="path" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EventID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PublishGroupWithEventsIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PublishGroupWithEventsIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NonProd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dbName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="path" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EventID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appDest" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NonProdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NonProdResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateEvents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inputEventsDataFile" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateEventsResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EventDT" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="TimingDT" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="CommunicationDT" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateEventResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EventID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEvents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inputEventsDataFile" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateEventsResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AdminAlias" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EventID" type="xs:int" />
+        <xs:element minOccurs="0" name="EventData" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="TimingData" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="CommunicationData" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateEventResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAttendanceData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AttendanceData" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="UnknownUsersDataDT" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAttendanceDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateAttendanceDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EventTrackerAttendanceReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inputEventsDataFile" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EventTrackerAttendanceReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EventTrackerAttendanceReportResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="attendeesDT" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cardkey" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserDataResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userDT" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CardScanIDRetrieval">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cardkey" type="xs:int" />
+        <xs:element minOccurs="0" name="FirmwareVersion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CardScanIDRetrievalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CardScanIDRetrievalResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userDT" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

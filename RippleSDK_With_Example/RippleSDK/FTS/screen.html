@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
+    <title>Ripple SDK Screen</title>
+
+    <!-- Include the rippleScreen.js file of the Ripple SDK in the screen html page -->
+    <script src="JS/rippleScreen.js"></script>
+
+    <script src="JS/follow-sequence.js"></script>
+    <style type="text/css">
+        body {
+            width: calc(100vw);
+            height: calc(100vh);
+            background-image: url('Images/front-bg.png');
+            background-size: 100% 100%;
+            margin: 0;
+            padding: 0;
+            background-repeat: no-repeat;
+            font-size:0.75em;
+            /*cursor:none;*/ /* Use cursor:none property to hide the cursor when deploying on Ripple*/
+        }
+
+        #contentDiv {
+            position: absolute;
+            left: calc(12.18vw);
+            top: calc(17.69vh);
+   
+            width: calc(73.64vw);
+            height: calc(57.52vh);
+            color: #fff;
+            overflow: hidden;
+            font-family: 'Segoe Script';
+        }
+
+        #contentDiv #contentHeading {
+            text-align: center;
+        }
+
+        #contentDiv #startInstruction {
+            text-align: center;
+            margin-top: 1.0em;
+            font-size: 2.0em;
+            color: #4cff00;
+        }
+
+        #contentDiv #instructionsContent {
+            font-size:2.0em;
+            display:block;
+        }
+
+        #contentDiv #instructionsContent ul {
+            list-style:circle;
+        }
+
+        #contentDiv #content {
+            margin: 1.0em;
+            font-size: 2.0em;
+            display:none;
+        }
+
+        #contentDiv #content #hints {
+            text-align: center;
+        }
+
+        #contentDiv #content #hints .hint {
+            border-bottom: 0.1em solid #fff;
+            word-spacing: 0.1em;
+            line-height: 1.5em;
+            margin: 1.5em 0.5em;
+            padding: 0 0.1em;
+        }
+
+        #contentDiv #content #instruction {
+            margin: 1.0em;
+        }
+
+        #contentDiv #content #instruction .time {
+            color: #ff0;
+            font-weight: bold;
+        }
+                
+        #chancesLeft {
+            position:absolute;
+            text-align:right;
+            top:0;
+            color:#ff0;
+            right:0;
+            font-size:0.5em;
+            font-weight:bold;
+        }
+
+        #chances {
+             font-size:3.0em;
+        }
+
+        #score {
+             font-size:1.5em;
+        }
+
+        audio {
+            display: none;
+        }
+
+        #footer {
+            position:fixed;
+            bottom:0;
+            font-size:1.0em;
+            background:#000;
+            color:#fff;
+            text-align:center;
+            padding:0.3em;
+            width:calc(100vw);
+            overflow:hidden;
+            font-family:'Segoe Script';
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            /* Various rippleHelper methods */
+
+            // To set debug mode after initializing 
+            rippleHelper.setDebugMode(true);
+
+            // To set emulator mode after initializing 
+            rippleHelper.setEmulatorMode(true);
+
+            // Ripple Timer
+            // Measures time in seconds
+            // Has Methods 
+            //timer.startTimer() // to start the timer from initial value 1
+            //timer.stopTimer() // to stop the timer
+            //timer.getTime() // to get time in seconds
+            //var timer = rippleHelper.timer();
+
+            //// To Send A Message To Front Screen
+            //// This will fire an event with name sent in paramter 'CommandName' and property commandParameters of event will 
+            //// give commandParameters
+            //rippleHelper.sendCommandToFloor("RippleSampleCommand", ["Parameter1", "Parameter2"]);
+
+            //// Any Message Recieved From Floor
+            //// Where 'CommandFromScreen' is command name of command recieved from Screen
+            //document.addEventListener("CommandFromScreen", function (evt) {
+            //    //commandParameters is an array of parameters received from Screen
+            //    console.log(evt.commandParameters);
+            //});
+            //rippleHelper.enableKeyboardInput(true);
+            //document.addEventListener("keyboardInput", function (e) {
+            //    var input = e.input;
+            //});
+
+            initializeGame();
+        }
+
+    </script>
+</head>
+<body>
+    <div id="contentDiv">
+        <h1 id="contentHeading">Welcome Instructions
+        </h1>
+        <div id="instructionsContent">
+            <ul>
+                <li>You will be shown a sequence on screen.</li>
+                <li>You have to memorize it and repeat it in given time by stepping on floor in the same order.</li>
+                <li>Make sure you are not stepping on any number before starting.</li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="instruction">Seconds remaining to repeat the sequence: <span class="time"> </span></div>
+            <div id="hints">
+                <!-- Div where the numbers to guess will be displayed -->
+            </div>
+        <div id="chancesLeft">
+          <div id="chances"></div>
+          <div id="score">Score: <span id="points">0</span></div> 
+        </div>          
+        </div>
+          <h2 id="startInstruction">swipe your right hand to start</h2>
+        <audio loop autoplay>
+            <source src="Audio/bgSound.mp3" />
+        </audio>
+        <audio id="Audio1">
+            <source src="Audio/1.mp3" />
+        </audio>
+        <audio id="Audio2">
+            <source src="Audio/2.mp3" />
+        </audio>
+        <audio id="Audio3">
+            <source src="Audio/3.mp3" />
+        </audio>
+        <audio id="Audio4">
+            <source src="Audio/4.mp3" />
+        </audio>
+        <audio id="LevelChange">
+            <source src="Audio/LevelChange.mp3" />
+        </audio>
+        <audio id="GameOver">
+            <source src="Audio/gameOver.mp3" />
+        </audio>
+        <audio id="Correct">
+            <source src="Audio/yeah.mp3" />
+        </audio>
+        <audio id="Wrong">
+            <source src="Audio/laugh.mp3" />
+        </audio>
+    </div>
+    <div id="footer">
+        Swipe your Left hand to exit the game
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="52cea915-59b9-400a-814b-9c443228e907" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://co2ecweb04/SQLService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SQLService.xsd" MetadataType="Schema" ID="6ec9f9f1-b4cf-43de-9c3d-b2eebdad8493" SourceId="1" SourceUrl="http://co2ecweb04/SQLService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SQLService1.xsd" MetadataType="Schema" ID="b47f22bf-c05c-46a0-b2c2-8971e35f861b" SourceId="1" SourceUrl="http://co2ecweb04/SQLService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SQLService.wsdl" MetadataType="Wsdl" ID="3c223784-58e9-4f2f-95c8-88174966bc7e" SourceId="1" SourceUrl="http://co2ecweb04/SQLService.svc?wsdl" />
+    <MetadataFile FileName="SQLService.disco" MetadataType="Disco" ID="86f4ad73-f541-4b8d-9231-8b1a6f0ff946" SourceId="1" SourceUrl="http://co2ecweb04/SQLService.svc?disco" />
+    <MetadataFile FileName="SQLService2.xsd" MetadataType="Schema" ID="aa9712ad-546f-4b9f-a562-9dc5d03ef548" SourceId="1" SourceUrl="http://co2ecweb04/SQLService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

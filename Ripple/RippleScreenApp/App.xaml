@@ -1,0 +1,8 @@
+﻿<Application x:Class="RippleScreenApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Startup="Application_Startup" DispatcherUnhandledException="Application_DispatcherUnhandledException_1" Exit="Application_Exit_1">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

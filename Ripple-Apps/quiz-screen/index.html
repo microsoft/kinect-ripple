@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
+    <title>Answer The Question</title>
+    <script src="Assets/main.js"></script>
+    <!--<link rel="stylesheet" href="Assets/style.css" />-->
+    <style>
+        body {
+            margin:0;
+            padding:0;
+            overflow:hidden;
+        }
+        #surface {
+            margin:0;
+            padding:0;
+            display:block;
+            position:fixed;
+            top:0px;
+            left:0px;
+            height:100%;
+            width:100%;
+            z-index:1;
+        }
+
+        #question {
+            margin:0;
+            padding:0;
+            display:block;
+            position:fixed;
+            top:0px;
+            left:0px;
+            height:100%;
+            width:100%;
+            z-index:2;
+        }
+
+        #answer {
+            margin:0;
+            padding:0;
+            display:block;
+            position:fixed;
+            top:0px;
+            left:0px;
+            height:100%;
+            width:100%;
+            z-index:3;
+        }
+
+        
+        #response {
+            margin:0;
+            padding:0;
+            display:block;
+            position:fixed;
+            top:0px;
+            left:0px;
+            height:100%;
+            width:100%;
+            z-index:4;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="surface"></canvas>
+    <canvas id="question"></canvas>
+    <canvas id="answer"></canvas>
+    <canvas id="response"></canvas>
+</body>
+</html>
