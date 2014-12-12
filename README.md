@@ -5,8 +5,8 @@ kinect-ripple
 Kinect Ripple is a dual projection based infotainment system that comes with fully customizable interactive floor and screen. 
 
 Kinect Ripple simple UI framework allows you to quickly add, edit and build integrated experiences on top of it. 
-As the name suggests, ‘Kinect Ripple’ has the power to create new waves by integrating multiple, unique experiences
-in a single set-up through ‘gamification of knowledge’. 
+As the name suggests, â€˜Kinect Rippleâ€™ has the power to create new waves by integrating multiple, unique experiences
+in a single set-up through â€˜gamification of knowledgeâ€™. 
 
 The system is portable with quick setup (msi), auto-calibration of hardware with software and SDK, and easy customization with Content Editor
 
@@ -22,7 +22,7 @@ Kinect Ripple can be used for one of the following purposes:
 - Interact 
 - Entertain 
 - Information Disseminate
-================================================================================================================================
+*********************************************************************************************************************
 
 To use Ripple you need Kinect for Windows v2.
 
@@ -30,9 +30,10 @@ Ripple also works with Kinect for Windows v2 , check Ripple-V2 directory for Rip
 
 To setup and use Ripple Check Ripple Documentation.
 
-To start developing apps on Ripple , check RipleSDK_With_Example.
+To start developing apps on Ripple , check RippleSDK_With_Example.
 
-If you want to know more about Ripple then do visit: 
+Know More About Kinect Ripple
+================================
 
 [Video Trailer] (https://www.youtube.com/watch?v=_0K4iZdMjLw)
 
