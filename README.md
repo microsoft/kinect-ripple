@@ -22,6 +22,7 @@ Kinect Ripple can be used for one of the following purposes:
 - Interact 
 - Entertain 
 - Information Disseminate
+
 *********************************************************************************************************************
 
 To use Ripple you need Kinect for Windows v2.
