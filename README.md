@@ -25,7 +25,7 @@ Kinect Ripple can be used for one of the following purposes:
 
 *********************************************************************************************************************
 
-To use Ripple you need Kinect for Windows v2.
+To use Ripple you need Kinect for Windows.
 
 Ripple also works with Kinect for Windows v2 , check Ripple-V2 directory for Ripple version that works with v2.
 
