@@ -1,14 +1,11 @@
-kinect-ripple
+Kinect-Ripple
 =============
 
 *****************************************************************************************************************
-Kinect Ripple is a dual projection based infotainment system that comes with fully customizable interactive floor and screen. 
+Kinect-Ripple is a dual projection based infotainment system that comes with fully customizable interactive floor and screen. With Ripple, the user can interact with the system using body gestures as with XBOX and in addition to it, the user is provided with a set of live tiles on the floor which are activated depending on the position of the user. Named ‘Ripple’, the system is aimed to open a plethora of opportunities in the space of entertainment, social, education, fitness and business scenarios.  ‘Ripple’ has the power to create new waves by integrating multiple and unique experiences in a single set-up through ‘gamification of knowledge’.
 
-Kinect Ripple simple UI framework allows you to quickly add, edit and build integrated experiences on top of it. 
-As the name suggests, ‘Kinect Ripple’ has the power to create new waves by integrating multiple, unique experiences
-in a single set-up through ‘gamification of knowledge’. 
-
-The system is portable with quick setup (msi), auto-calibration of hardware with software and SDK, and easy customization with Content Editor
+The system is portable and robust with quick setup (msi), auto-calibration of hardware with software and SDK, and easy customization with Content Editor. Kinect-Ripple's simple content editor allows you to quickly add, edit and build integrated experiences on top of it without even writing a single line of code. 
+For developes, it provides a interface to develope interactive apps using HTML5 and javascript. 
 
 ******************************************************************************************************************
 
@@ -25,13 +22,12 @@ Kinect Ripple can be used for one of the following purposes:
 
 *********************************************************************************************************************
 
-To use Ripple you need Kinect for Windows.
-
-Ripple also works with Kinect for Windows v2 , check Ripple-V2 directory for Ripple version that works with v2.
+To use Ripple you need Kinect for Windows (works with both v2 and v2).
+For Kinect for Windows v1 use 'Ripple' directory and for v2 use Ripple-V2 directory.
 
 To setup and use Ripple Check Ripple Documentation.
 
-To start developing apps on Ripple , check RippleSDK_With_Example.
+Developers can use pure HTML5 + Javascript to create these Kinect-powered experiences. To start developing apps on Ripple , check RippleSDK_With_Example.
 
 Know More About Kinect Ripple
 ================================
