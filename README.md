@@ -21,11 +21,10 @@ Kinect Ripple can be used for one of the following purposes:
 - Information Disseminate
 
 *********************************************************************************************************************
+To get started with using Ripple and to video tutorials for the setup check 'Documentation' folder.
 
 To use Ripple you need Kinect for Windows (works with both v2 and v2).
-For Kinect for Windows v1 use 'Ripple' directory and for v2 use Ripple-V2 directory.
-
-To setup and use Ripple Check Ripple Documentation.
+For Kinect for Windows v1 use 'Ripple' directory and for v2 use 'Ripple-V2' directory.
 
 Developers can use pure HTML5 + Javascript to create these Kinect-powered experiences. To start developing apps on Ripple , check RippleSDK_With_Example.
 
