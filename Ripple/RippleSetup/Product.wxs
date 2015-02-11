@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include Includes\Includes.wxi?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Product Id="*" Name="RippleInstaller" Language="1033" Version="1.0.0.0" Manufacturer="Microsoft" UpgradeCode="138d1883-dc8c-4efe-be94-65d8abd52b33">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" InstallPrivileges="elevated" />
+    <PropertyRef Id="NETFRAMEWORK40FULL"/>
+
+    <Condition Message="[ProductName] requires .NET Framework 4.0. Please install the .NET Framework 4.0 then run this installer again.">
+      <![CDATA[Installed OR (NETFRAMEWORK40FULL)]]>
+    </Condition>
+
+
+    <Property Id="SPEECHRUNTIME">
+      <RegistrySearch Id="SpeechInstalled" Type="raw" Root="HKLM" Key="SOFTWARE\Microsoft\Speech Server\v11.0\Recognizers\Tokens\SR_MS_ZXX_Lightweight_v11.0" Name="FEConfigDataFile" Win64="no" />
+    </Property>
+    <Property Id="SPEECHRUNTIME64">
+      <RegistrySearch Id="SpeechInstalledX64" Type="raw" Root="HKLM" Key="SOFTWARE\Microsoft\Speech Server\v11.0\Recognizers\Tokens\SR_MS_ZXX_Lightweight_v11.0" Name="FEConfigDataFile" Win64="yes" />
+    </Property>
+
+    <Condition Message="[ProductName] requires Microsoft Speech Platform - Runtime (Version 11). Please install Microsoft Speech Platform - Runtime (Version 11) then run this installer again.">
+      <![CDATA[(SPEECHRUNTIME OR SPEECHRUNTIME64) OR Installed]]>
+    </Condition>
+
+    <Property Id="KINECTRUNTIME">
+      <RegistrySearch Id="KinectRuntimeInstalled" Type="raw" Root="HKLM" Key="SOFTWARE\Microsoft\Speech Server\v11.0\Recognizers\Tokens\SR_MS_en-US_Kinect_11.0" Name="DefaultProfile" Win64="no" />
+    </Property>
+    <Property Id="KINECTRUNTIME64">
+      <RegistrySearch Id="KinectRuntimeInstalledX64" Type="raw" Root="HKLM"  Key="SOFTWARE\Microsoft\Speech Server\v11.0\Recognizers\Tokens\SR_MS_en-US_Kinect_11.0" Name="DefaultProfile" Win64="yes" />
+    </Property>
+
+    <Condition Message="[ProductName] requires Kinect for Windows Runtime v1.7. Please install Kinect for Windows Runtime v1.7 then run this installer again.">
+      <![CDATA[(KINECTRUNTIME OR KINECTRUNTIME64) OR Installed]]>
+    </Condition>
+
+
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate />
+
+    <Feature Id="ProductFeature" Title="RippleInstaller" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>
+
+
+
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="$(var.Title)" >
+        </Directory>
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Directory Id="COMMOND35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="Common" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="COMMOND35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="CommonComponents" Guid="4C8FED5E-2D92-41F4-A2AF-B2EEF9D9EC37">
+        <File Id="GeneralRippleCommonUtilitiesDLL" Name="RippleCommonUtilities.dll"  Source="..\..\BinaryOutput\Common\RippleCommonUtilities.dll" />
+        <File Id="GeneralRippleDictionaryDLL" Name="RippleDictionary.dll"  Source="..\..\BinaryOutput\Common\RippleDictionary.dll" />
+        <File Id="AxInterop.ShockwaveFlashObjects" Name="AxInterop.ShockwaveFlashObjects.dll"  Source="..\..\BinaryOutput\Common\AxInterop.ShockwaveFlashObjects.dll" />
+        <File Id="Interop.ShockwaveFlashObjects" Name="Interop.ShockwaveFlashObjects.dll"  Source="..\..\BinaryOutput\Common\Interop.ShockwaveFlashObjects.dll" />
+        <File Id="logging" Name="MicrosoftIT.ManagedLogging.dll"  Source="..\..\BinaryOutput\Common\MicrosoftIT.ManagedLogging.dll" />
+        <File Id="zxing" Name="zxing.dll"  Source="..\..\BinaryOutput\Common\zxing.dll" />
+        <!--<File Id="RippleLocalService.exe.config" Name="RippleLocalService.exe.config"  Source="..\RippleLocalService\bin\Release\RippleLocalService.exe.config"  />
+        <File Id="RippleLocalService.exe" Name="RippleLocalService.exe"  Source="..\RippleLocalService\bin\Release\RippleLocalService.exe" KeyPath="yes" DiskId="1" />
+        <ServiceInstall Id="RippleLocalService" Type="ownProcess" Name="RippleLocalService" DisplayName="Ripple Local Service" Description="Will update the team with the crashes, and log user telemetry and feedback" Start="auto" Account="{Logon Username}" Password="{Logon Password}" ErrorControl="normal" />
+        <ServiceControl Id="RippleLocalService" Start="install" Stop="both" Remove="both" Name="RippleLocalService" Wait="no" />-->
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Directory Id="FLOORD35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="RippleFloor" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="FLOORD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="FloorComponents" Guid="10DCCBB7-C698-44EF-A2B4-949F7672D2C7">
+        <File Id="fil1FEA22F036EEE48F4AF426AEACAA9D178" Name="RippleFloorApp.exe"  Source="..\..\BinaryOutput\RippleFloor\RippleFloorApp.exe" />
+        <File Id="appconfig" Name="RippleFloorApp.exe.config"  Source="..\..\BinaryOutput\RippleFloor\RippleFloorApp.exe.config" />
+        <File Id="fil1FEA22F036EEE48F4AF426AEACAA9D179" Name="RippleCommonUtilities.dll"  Source="..\..\BinaryOutput\RippleFloor\RippleCommonUtilities.dll" />
+        <File Id="fil1FEA22F036EEE48F4AF426AEACAA9D180" Name="RippleDictionary.dll"  Source="..\..\BinaryOutput\RippleFloor\RippleDictionary.dll" />
+        <File Id="Floor_AxInterop.ShockwaveFlashObjects" Name="AxInterop.ShockwaveFlashObjects.dll"  Source="..\..\BinaryOutput\RippleFloor\AxInterop.ShockwaveFlashObjects.dll" />
+        <File Id="Floor_Microsoft.Samples.Kinect.SwipeGestureRecognizer" Name="Microsoft.Samples.Kinect.SwipeGestureRecognizer.dll"  Source="..\..\BinaryOutput\RippleFloor\Microsoft.Samples.Kinect.SwipeGestureRecognizer.dll" />
+        <File Id="Floor_Interop.ShockwaveFlashObjects" Name="Interop.ShockwaveFlashObjects.dll"  Source="..\..\BinaryOutput\RippleFloor\Interop.ShockwaveFlashObjects.dll" />
+        <File Id="Floor_logging" Name="MicrosoftIT.ManagedLogging.dll"  Source="..\..\BinaryOutput\RippleFloor\MicrosoftIT.ManagedLogging.dll" />
+        <File Id="Floor_zxing" Name="zxing.dll"  Source="..\..\BinaryOutput\RippleFloor\zxing.dll" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+
+  <Fragment>
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Directory Id="SCREEND35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="RippleScreen" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="SCREEND35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="RippleScreenComponents" Guid="31182635-0AC5-48E1-B9EB-2AEBDD18A28E">
+        <File Id="fil1FEA22F036EEE48F4AF426AEACAA9D188" Name="RippleScreenApp.exe"  Source="..\..\BinaryOutput\RippleScreen\RippleScreenApp.exe" />
+        <File Id="screenappconfig" Name="RippleScreenApp.exe.config"  Source="..\..\BinaryOutput\RippleScreen\RippleScreenApp.exe.config" />
+        <File Id="fil1FEA22F036EEE48F4AF426AEACAA9D189" Name="RippleCommonUtilities.dll"  Source="..\..\BinaryOutput\RippleScreen\RippleCommonUtilities.dll" />
+        <File Id="fil1FEA22F036EEE48F4AF426AEACAA9D181" Name="RippleDictionary.dll"  Source="..\..\BinaryOutput\RippleScreen\RippleDictionary.dll" />
+        <File Id="Screen_AxInterop.ShockwaveFlashObjects" Name="AxInterop.ShockwaveFlashObjects.dll"  Source="..\..\BinaryOutput\RippleScreen\AxInterop.ShockwaveFlashObjects.dll" />
+        <File Id="Screen_Interop.ShockwaveFlashObjects" Name="Interop.ShockwaveFlashObjects.dll"  Source="..\..\BinaryOutput\RippleScreen\Interop.ShockwaveFlashObjects.dll" />
+        <File Id="Screen_zxing" Name="zxing.dll"  Source="..\..\BinaryOutput\RippleScreen\zxing.dll" />
+        <File Id="Screen_logging" Name="MicrosoftIT.ManagedLogging.dll"  Source="..\..\BinaryOutput\RippleScreen\MicrosoftIT.ManagedLogging.dll" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+
+  <Fragment>
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Directory Id="CalibrationD35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="RippleCalibration" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="CalibrationD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="RippleCalibrationComponents" Guid="31182635-0AC5-48E1-B9EB-2AEBDD18A28F">
+        <File Id="fil1FEA22F036EEE48F4AF426AEACAA9D128" Name="RippleCalibration.exe"  Source="..\..\BinaryOutput\RippleCalibration\RippleCalibration.exe" />
+        <File Id="Calibration_Microsoft.Samples.Kinect.SwipeGestureRecognizer" Name="Microsoft.Samples.Kinect.SwipeGestureRecognizer.dll"  Source="..\..\BinaryOutput\RippleCalibration\Microsoft.Samples.Kinect.SwipeGestureRecognizer.dll" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Directory Id="EditorD35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="RippleEditor" />
+    </DirectoryRef>
+    <DirectoryRef Id="EditorD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Directory Id="EditorAssetsD35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="Default Assets" />
+    </DirectoryRef>
+    <DirectoryRef Id="EditorAssetsD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Directory Id="AnimationsD35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="Animations" />
+    </DirectoryRef>
+    <!--<DirectoryRef Id="AnimationsD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Directory Id="FootballD35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="Football" />
+    </DirectoryRef>
+    <DirectoryRef Id="FootballD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Directory Id="FootballAssetsD35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="Assets" />
+    </DirectoryRef>
+    <DirectoryRef Id="AnimationsD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Directory Id="FootballGameD35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="Football-game" />
+    </DirectoryRef>
+    <DirectoryRef Id="FootballGameD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Directory Id="FootballGameAssetsD35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="Assets" />
+    </DirectoryRef>-->
+    <DirectoryRef Id="AnimationsD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Directory Id="WaterRipplesD35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="WaterRipples" />
+    </DirectoryRef>
+    <DirectoryRef Id="WaterRipplesD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Directory Id="WaterRipplesAssetsD35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="Assets" />
+    </DirectoryRef>
+    <!--<DirectoryRef Id="AnimationsD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Directory Id="SmileyGameD35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="SmileyGame" />
+    </DirectoryRef>
+    <DirectoryRef Id="SmileyGameD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Directory Id="SmileyGameAssetsD35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="Assets" />
+    </DirectoryRef>-->
+    <DirectoryRef Id="EditorAssetsD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Directory Id="AudioD35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="Audio" />
+    </DirectoryRef>
+    <DirectoryRef Id="EditorAssetsD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Directory Id="DocsD35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="Docs" />
+    </DirectoryRef>
+    <DirectoryRef Id="EditorAssetsD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Directory Id="ImagesD35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="Images" />
+    </DirectoryRef>
+    <DirectoryRef Id="EditorAssetsD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Directory Id="VideosD35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="Videos" />
+    </DirectoryRef>
+    <DirectoryRef Id="EditorD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Directory Id="EditorSampleTemplatesD35FA4CBD568EDEB7B9CAA8EE51F9DC3" Name="SampleTemplates" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="EditorD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="RippleEditorComponents" Guid="31182635-0AC5-48E1-B9EB-2AEBDD18A290">
+        <File Id="fil1FEA22F036EEE48F4AF426AEACAA9D138" Name="RippleEditor.exe"  Source="..\..\BinaryOutput\RippleEditor\RippleEditor.exe" />
+        <File Id="Editor_WPFToolkit" Name="Xceed.Wpf.Toolkit.dll"  Source="..\..\BinaryOutput\RippleEditor\Xceed.Wpf.Toolkit.dll" />
+        <File Id="fil1FEA22F036EEE48F4AF426AEACAA9D131" Name="RippleDictionary.dll"  Source="..\..\BinaryOutput\RippleEditor\RippleDictionary.dll" />
+        <File Id="Editor_logging" Name="MicrosoftIT.ManagedLogging.dll"  Source="..\..\BinaryOutput\RippleEditor\MicrosoftIT.ManagedLogging.dll" />
+        <File Id="CoDlFEA22F036EEE48F4AF426AEACAA9D131" Name="RippleCommonUtilities.dll"  Source="..\..\BinaryOutput\RippleEditor\RippleCommonUtilities.dll" />
+        <File Id="RippleEDITORexeConfig" Name="RippleEditor.exe.config"  Source="..\..\BinaryOutput\RippleEditor\RippleEditor.exe.config" />
+      </Component>
+    </DirectoryRef>
+
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="AnimationsD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="RippleEditorAnimationAssets" Guid="32182635-0AC5-48E1-B9EB-2AEBDD18A291">
+        <File Id="Animation1FEA22F036EEE48F4AF426AEACAA9D138" Name="new2.swf"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\new2.swf" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="AudioD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="RippleEditorAudioAssets" Guid="33182635-0AC5-48E1-B9EB-2AEBDD18A291">
+        <File Id="Audio1FEA22F036EEE48F4AF426AEACAA9D138" Name="transition_music.wav"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Audio\transition_music.wav" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="DocsD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="RippleEditorDocsAssets" Guid="9E642976-437E-45EE-8A51-046556F4BFE1">
+        <File Id="doc1FEA22F036EEE48F4AF426AEACAA9D138" Name="PrinterReceipt.pptx"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Docs\PrinterReceipt.pptx" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="ImagesD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="RippleEditorImageAssets" Guid="34182635-0AC5-48E1-B9EB-2AEBDD18A291">
+        <File Id="ImageAboutUsjpg" Name="AboutUs.jpg"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Images\AboutUs.jpg" />
+        <File Id="Imagedefaultstartpng" Name="default_start.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Images\default_start.png" />
+        <File Id="ImageFunCornerpng" Name="FunCorner.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Images\FunCorner.png" />
+        <File Id="ImageGoToStartpng" Name="GoToStart.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Images\GoToStart.png" />
+        <File Id="Imagementorsjpg" Name="mentors.jpg"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Images\mentors.jpg" />
+        <File Id="ImageTeamjpg" Name="Team.jpg"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Images\Team.jpg" />
+        <File Id="Imagepptendpng" Name="pptend.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Images\pptend.png" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="VideosD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="RippleEditorVideoAssets" Guid="35182635-0AC5-48E1-B9EB-2AEBDD18A291">
+        <File Id="VideoRipple_Wavemp4" Name="Ripple_Wave.mp4"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Videos\Ripple_Wave.mp4" />
+        <File Id="VideoGoToStartmp4" Name="GoToStart.mp4"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Videos\GoToStart.mp4" />
+        <File Id="VideoRipple_IntroUnlockmp4" Name="Ripple_IntroUnlock.mp4"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Videos\Ripple_IntroUnlock.mp4" />
+        <File Id="VideoRippleIntromp4" Name="RippleIntro.mp4"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Videos\RippleIntro.mp4" />
+        <File Id="VideoRippleStartmp4" Name="ripple_start.mp4"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Videos\ripple_start.mp4" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="EditorSampleTemplatesD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="RippleEditorSampleTemplates" Guid="41182635-0AC5-48E1-B9EB-2AEBDD18A291">
+        <File Id="T1FEA22F036EEE48F4AF426AEACAA9D138" Name="Template2X2.xml"  Source="..\..\BinaryOutput\RippleEditor\SampleTemplates\Template2X2.xml" />
+        <File Id="Template3X3" Name="Template3X3.xml"  Source="..\..\BinaryOutput\RippleEditor\SampleTemplates\Template3X3.xml" />
+        <File Id="Template2X3" Name="Template2X3.xml"  Source="..\..\BinaryOutput\RippleEditor\SampleTemplates\Template2X3.xml" />
+        <File Id="Template3X2" Name="Template3X2.xml"  Source="..\..\BinaryOutput\RippleEditor\SampleTemplates\Template3X2.xml" />
+        <File Id="TemplateMerge1" Name="TemplateMerge1.xml"  Source="..\..\BinaryOutput\RippleEditor\SampleTemplates\TemplateMerge1.xml" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="FootballD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="RippleEditorDefaultFootballAnimation" Guid="A662B9A6-AFB8-4969-9693-0794974D2C49">
+        <File Id="FOOTBALLINDEXHTML" Name="index.html"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\Football\index.html" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="FootballAssetsD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="RippleEditorDefaultFootballAnimationAssets" Guid="BAAFAAED-BDD2-4A0F-9361-60C81E44058C">
+        <File Id="FOOTBALLbackgroundMusic.mp3" Name="backgroundMusic.mp3"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\Football\Assets\backgroundMusic.mp3" />
+        <File Id="FOOTBALLball.png" Name="ball.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\Football\Assets\ball.png" />
+        <File Id="FOOTBALLfield.jpg" Name="field.jpg"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\Football\Assets\field.jpg" />
+        <File Id="FOOTBALLgameComplete.mp3" Name="gameComplete.mp3"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\Football\Assets\gameComplete.mp3" />
+        <File Id="FOOTBALLkick.mp3" Name="kick.mp3"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\Football\Assets\kick.mp3" />
+        <File Id="FOOTBALLmain.js" Name="main.js"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\Football\Assets\main.js" />
+        <File Id="FOOTBALLnet.png" Name="net.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\Football\Assets\net.png" />
+        <File Id="FOOTBALLstyle.css" Name="style.css"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\Football\Assets\style.css" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="FootballGameD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="RippleEditorDefaultFootballGameAnimation" Guid="3E408381-2994-421D-B868-94CD9137BA83">
+        <File Id="FOOTBALLGAMEINDEXHTML" Name="index.html"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\Football-game\index.html" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="FootballGameAssetsD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="RippleEditorDefaultFootballGameAnimationAssets" Guid="1149CEC0-675E-47C2-B1E7-0FC441B68481">
+        <File Id="FOOTBALLGAMEbackgroundMusic.mp3" Name="backgroundMusic.mp3"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\Football-game\Assets\backgroundMusic.mp3" />
+        <File Id="FOOTBALLGAMEball.png" Name="ball.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\Football-game\Assets\ball.png" />
+        <File Id="FOOTBALLGAMEfield.jpg" Name="field.jpg"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\Football-game\Assets\field.jpg" />
+        <File Id="FOOTBALLGAMEgameComplete.mp3" Name="gameComplete.mp3"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\Football-game\Assets\gameComplete.mp3" />
+        <File Id="FOOTBALLGAMEkick.mp3" Name="kick.mp3"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\Football-game\Assets\kick.mp3" />
+        <File Id="FOOTBALLGAMEmain.js" Name="main.js"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\Football-game\Assets\main.js" />
+        <File Id="FOOTBALLGAMEnet.png" Name="net.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\Football-game\Assets\net.png" />
+        <File Id="FOOTBALLGAMEstyle.css" Name="style.css"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\Football-game\Assets\style.css" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="WaterRipplesD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="RippleEditorDefaultWaterRipplesAnimation" Guid="814EBF61-61AA-4F79-97A2-5E944921C4C2">
+        <File Id="WATERRIPPLESINDEXHTML" Name="index.html"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\index.html" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="WaterRipplesAssetsD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="RippleEditorDefaultWaterRipplesAnimationAssets" Guid="B43E97AC-41F7-4E89-AB8A-4DBE94B9E7D1">
+        <File Id="WATERRIPPLES1.png" Name="1.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\1.png" />
+        <File Id="WATERRIPPLES2.png" Name="2.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\2.png" />
+        <File Id="WATERRIPPLES3.png" Name="3.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\3.png" />
+        <File Id="WATERRIPPLES4.png" Name="4.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\4.png" />
+        <File Id="WATERRIPPLES5.png" Name="5.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\5.png" />
+        <File Id="WATERRIPPLES6.png" Name="6.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\6.png" />
+        <File Id="WATERRIPPLESbackground.mp3" Name="background.mp3"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\background.mp3" />
+        <File Id="WATERRIPPLESbackground_orig.mp3" Name="background_orig.mp3"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\background_orig.mp3" />
+        <File Id="WATERRIPPLESflower.jpg" Name="flower.jpg"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\flower.jpg" />
+        <File Id="WATERRIPPLESflower.png" Name="flower.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\flower.png" />
+        <File Id="WATERRIPPLESflower_old.png" Name="flower_old.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\flower_old.png" />
+        <File Id="WATERRIPPLESimages.js" Name="images.js"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\images.js" />
+        <File Id="WATERRIPPLESleafUnlocked.mp3" Name="leafUnlocked.mp3"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\leafUnlocked.mp3" />
+        <File Id="WATERRIPPLESleafUnlockedorig.mp3" Name="leafUnlocked_orig.mp3"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\leafUnlocked_orig.mp3" />
+        <File Id="WATERRIPPLESmain.js" Name="main.js"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\main.js" />
+        <File Id="WATERRIPPLESphoto.jpg" Name="photo.jpg"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\photo.jpg" />
+        <File Id="WATERRIPPLESphoto.png" Name="photo.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\photo.png" />
+        <File Id="WATERRIPPLESripple.mp3" Name="ripple.mp3"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\ripple.mp3" />
+        <File Id="WATERRIPPLESripple_orig.mp3" Name="ripple_orig.mp3"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\ripple_orig.mp3" />
+        <File Id="WATERRIPPLESred_fish.png" Name="red_fish.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\red_fish.png" />
+        <File Id="WATERRIPPLESwhite_fish.png" Name="white_fish.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\white_fish.png" />
+        <File Id="WATERRIPPLESyellow_fish.png" Name="yellow_fish.png"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\WaterRipples\Assets\yellow_fish.png" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="SmileyGameD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="RippleEditorDefaultSmileyGameAnimation" Guid="608B9BD3-94EE-45CF-9EA4-754AFB1D6735">
+        <File Id="SMILEYGAMEINDEXHTML" Name="index.html"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\SmileyGame\index.html" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="SmileyGameAssetsD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
+      <Component Id="RippleEditorDefaultSmileyGameAnimationAssets" Guid="667CAAA7-1DFA-4C6B-9CD8-C7A8197776B1">
+        <File Id="SMILEYGAMEbackgroundMusic.mp3" Name="backgroundMusic.mp3"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\SmileyGame\Assets\backgroundMusic.mp3" />
+        <File Id="SMILEYGAMEgameComplete.mp3" Name="gameComplete.mp3"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\SmileyGame\Assets\gameComplete.mp3" />
+        <File Id="SMILEYGAMEhitsound.mp3" Name="hitsound.mp3"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\SmileyGame\Assets\hitsound.mp3" />
+        <File Id="SMILEYGAMEmain.js" Name="main.js"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\SmileyGame\Assets\main.js" />
+        <File Id="SMILEYGAMEstyle.css" Name="style.css"  Source="..\..\BinaryOutput\RippleEditor\Default Assets\Animations\SmileyGame\Assets\style.css" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="RippleComponents" Guid="41182635-0AC5-48E1-B9EB-2AEBDD18A28A">
+        <File Id="fil195C3F93D6DB69D9D754BA1BB5A2E3AA" Name="Ripple.exe"  Source="..\..\BinaryOutput\Ripple.exe" />
+        <File Id="RippleexeConfig" Name="Ripple.exe.config"  Source="..\..\BinaryOutput\Ripple.exe.config" />
+        <File Id="fil195C3F93D6DB69D9D754BA1BB5A2E3AB" Name="Readme.html"  Source="..\SolutionItems\Readme.html" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <ComponentRef Id="RippleComponents" />
+      <ComponentRef Id="FloorComponents" />
+      <ComponentRef Id="CommonComponents" />
+      <ComponentRef Id="RippleScreenComponents" />
+      <ComponentRef Id="RippleCalibrationComponents" />
+      <ComponentRef Id="RippleEditorComponents" />
+      <ComponentRef Id="RippleEditorAnimationAssets" />
+      <ComponentRef Id="RippleEditorAudioAssets" />
+      <ComponentRef Id="RippleEditorImageAssets" />
+      <ComponentRef Id="RippleEditorVideoAssets" />
+      <ComponentRef Id="RippleEditorSampleTemplates" />
+      <ComponentRef Id="RippleEditorDefaultWaterRipplesAnimation" />
+      <ComponentRef Id="RippleEditorDefaultWaterRipplesAnimationAssets" />
+    </ComponentGroup>
+    <!--
+    
+    <ComponentGroup Id="CalibrationComponents" Directory="CALIBRATIONFOLDER">
+      
+    </ComponentGroup>
+    <ComponentGroup Id="EditorComponents" Directory="EDITORFOLDER">
+      
+    </ComponentGroup>-->
+  </Fragment>
+</Wix>
