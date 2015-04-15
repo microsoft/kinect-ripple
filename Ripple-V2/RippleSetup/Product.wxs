@@ -65,8 +65,6 @@
       <Component Id="CommonComponents" Guid="4C8FED5E-2D92-41F4-A2AF-B2EEF9D9EC37">
         <File Id="GeneralRippleCommonUtilitiesDLL" Name="RippleCommonUtilities.dll"  Source="..\..\BinaryOutput\Common\RippleCommonUtilities.dll" />
         <File Id="GeneralRippleDictionaryDLL" Name="RippleDictionary.dll"  Source="..\..\BinaryOutput\Common\RippleDictionary.dll" />
-        <File Id="AxInterop.ShockwaveFlashObjects" Name="AxInterop.ShockwaveFlashObjects.dll"  Source="..\..\BinaryOutput\Common\AxInterop.ShockwaveFlashObjects.dll" />
-        <File Id="Interop.ShockwaveFlashObjects" Name="Interop.ShockwaveFlashObjects.dll"  Source="..\..\BinaryOutput\Common\Interop.ShockwaveFlashObjects.dll" />
         <File Id="logging" Name="MicrosoftIT.ManagedLogging.dll"  Source="..\..\BinaryOutput\Common\MicrosoftIT.ManagedLogging.dll" />
         <File Id="zxing" Name="zxing.dll"  Source="..\..\BinaryOutput\Common\zxing.dll" />
         <!--<File Id="RippleLocalService.exe.config" Name="RippleLocalService.exe.config"  Source="..\RippleLocalService\bin\Release\RippleLocalService.exe.config"  />
@@ -89,9 +87,6 @@
         <File Id="appconfig" Name="RippleFloorApp.exe.config"  Source="..\..\BinaryOutput\RippleFloor\RippleFloorApp.exe.config" />
         <File Id="fil1FEA22F036EEE48F4AF426AEACAA9D179" Name="RippleCommonUtilities.dll"  Source="..\..\BinaryOutput\RippleFloor\RippleCommonUtilities.dll" />
         <File Id="fil1FEA22F036EEE48F4AF426AEACAA9D180" Name="RippleDictionary.dll"  Source="..\..\BinaryOutput\RippleFloor\RippleDictionary.dll" />
-        <File Id="Floor_AxInterop.ShockwaveFlashObjects" Name="AxInterop.ShockwaveFlashObjects.dll"  Source="..\..\BinaryOutput\RippleFloor\AxInterop.ShockwaveFlashObjects.dll" />
-        <File Id="Floor_Microsoft.Samples.Kinect.SwipeGestureRecognizer" Name="Microsoft.Samples.Kinect.SwipeGestureRecognizer.dll"  Source="..\..\BinaryOutput\RippleFloor\Microsoft.Samples.Kinect.SwipeGestureRecognizer.dll" />
-        <File Id="Floor_Interop.ShockwaveFlashObjects" Name="Interop.ShockwaveFlashObjects.dll"  Source="..\..\BinaryOutput\RippleFloor\Interop.ShockwaveFlashObjects.dll" />
         <File Id="Floor_logging" Name="MicrosoftIT.ManagedLogging.dll"  Source="..\..\BinaryOutput\RippleFloor\MicrosoftIT.ManagedLogging.dll" />
         <File Id="Floor_zxing" Name="zxing.dll"  Source="..\..\BinaryOutput\RippleFloor\zxing.dll" />
       </Component>
@@ -111,8 +106,8 @@
         <File Id="screenappconfig" Name="RippleScreenApp.exe.config"  Source="..\..\BinaryOutput\RippleScreen\RippleScreenApp.exe.config" />
         <File Id="fil1FEA22F036EEE48F4AF426AEACAA9D189" Name="RippleCommonUtilities.dll"  Source="..\..\BinaryOutput\RippleScreen\RippleCommonUtilities.dll" />
         <File Id="fil1FEA22F036EEE48F4AF426AEACAA9D181" Name="RippleDictionary.dll"  Source="..\..\BinaryOutput\RippleScreen\RippleDictionary.dll" />
-        <File Id="Screen_AxInterop.ShockwaveFlashObjects" Name="AxInterop.ShockwaveFlashObjects.dll"  Source="..\..\BinaryOutput\RippleScreen\AxInterop.ShockwaveFlashObjects.dll" />
-        <File Id="Screen_Interop.ShockwaveFlashObjects" Name="Interop.ShockwaveFlashObjects.dll"  Source="..\..\BinaryOutput\RippleScreen\Interop.ShockwaveFlashObjects.dll" />
+        <!--<File Id="Screen_AxInterop.ShockwaveFlashObjects" Name="AxInterop.ShockwaveFlashObjects.dll"  Source="..\..\BinaryOutput\RippleScreen\AxInterop.ShockwaveFlashObjects.dll" />
+        <File Id="Screen_Interop.ShockwaveFlashObjects" Name="Interop.ShockwaveFlashObjects.dll"  Source="..\..\BinaryOutput\RippleScreen\Interop.ShockwaveFlashObjects.dll" />-->
         <File Id="Screen_zxing" Name="zxing.dll"  Source="..\..\BinaryOutput\RippleScreen\zxing.dll" />
         <File Id="Screen_logging" Name="MicrosoftIT.ManagedLogging.dll"  Source="..\..\BinaryOutput\RippleScreen\MicrosoftIT.ManagedLogging.dll" />
       </Component>
@@ -129,7 +124,7 @@
     <DirectoryRef Id="CalibrationD35FA4CBD568EDEB7B9CAA8EE51F9DC3">
       <Component Id="RippleCalibrationComponents" Guid="31182635-0AC5-48E1-B9EB-2AEBDD18A28F">
         <File Id="fil1FEA22F036EEE48F4AF426AEACAA9D128" Name="RippleCalibration.exe"  Source="..\..\BinaryOutput\RippleCalibration\RippleCalibration.exe" />
-        <File Id="Calibration_Microsoft.Samples.Kinect.SwipeGestureRecognizer" Name="Microsoft.Samples.Kinect.SwipeGestureRecognizer.dll"  Source="..\..\BinaryOutput\RippleCalibration\Microsoft.Samples.Kinect.SwipeGestureRecognizer.dll" />
+        <!--<File Id="Calibration_Microsoft.Samples.Kinect.SwipeGestureRecognizer" Name="Microsoft.Samples.Kinect.SwipeGestureRecognizer.dll"  Source="..\..\BinaryOutput\RippleCalibration\Microsoft.Samples.Kinect.SwipeGestureRecognizer.dll" />-->
       </Component>
     </DirectoryRef>
   </Fragment>
